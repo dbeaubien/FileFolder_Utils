@@ -1,0 +1,53 @@
+﻿{
+	"(Default Forms)": {},
+	"(Default Project Methods)": {},
+	"(Default Tables)": {},
+	"File Methods": {
+		"methods": [
+			"File_DoesExist",
+			"File_IsCSV",
+			"File_IsJPG",
+			"File_IsPNG",
+			"File_IsTabDelimited"
+		]
+	},
+	"FileBuffer Methods": {
+		"methods": [
+			"FileBuffer_DetectBOM",
+			"FileBuffer_EOF",
+			"FileBuffer_FetchCSVLine",
+			"FileBuffer_FetchData_BySize",
+			"FileBuffer_FetchData_ByString",
+			"FileBuffer_FetchData_PeekAhead",
+			"FileBuffer_FetchTabDelimitedLne",
+			"FileBuffer_FillBuffer",
+			"FileBuffer_GetFilePostion",
+			"FileBuffer_Init",
+			"FileBuffer_TellMeTheEOL"
+		]
+	},
+	"Folder Methods": {
+		"methods": [
+			"Folder_DoesExist",
+			"Folder_ParentName",
+			"Folder_VerifyExistance"
+		]
+	},
+	"Utility Methods": {
+		"methods": [
+			"Compiler_Methods",
+			"Compiler_Variables",
+			"STR_GetLeftOfChar",
+			"STR_IsOneOf",
+			"STR_TellMeTheEOL",
+			"UTF8_GetByteCountFrom1stChar"
+		]
+	},
+	"trash": {
+		"groups": [
+			"(Default Forms)",
+			"(Default Project Methods)",
+			"(Default Tables)"
+		]
+	}
+}
