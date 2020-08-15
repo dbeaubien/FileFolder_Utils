@@ -13,6 +13,7 @@
 	},
 	"FileBuffer Methods": {
 		"methods": [
+			"FileBuffer__FillBuffer",
 			"FileBuffer_DetectBOM",
 			"FileBuffer_EOF",
 			"FileBuffer_FetchCSVLine",
@@ -20,7 +21,6 @@
 			"FileBuffer_FetchData_ByString",
 			"FileBuffer_FetchData_PeekAhead",
 			"FileBuffer_FetchTabDelimitedLne",
-			"FileBuffer_FillBuffer",
 			"FileBuffer_GetFilePostion",
 			"FileBuffer_Init",
 			"FileBuffer_TellMeTheEOL"

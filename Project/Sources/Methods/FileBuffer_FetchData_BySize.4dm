@@ -1,5 +1,5 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable","folder":"File + Folder","lang":"en"}
-  // Method: FileBuffer_FetchData_BySize (num bytes)
+  // Method: FileBuffer_FetchData_BySize (numBytesToFetch) : fileContent
 
   // This method returns the specified number of bytes. If it cannot
   // then that means that the file is empty.
@@ -20,7 +20,7 @@ If (Asserted:C1132(Count parameters:C259=1))
 	Repeat 
 		Case of 
 			: (Length:C16(fileBuffer_buffer)=0)
-				FileBuffer_FillBuffer 
+				FileBuffer__FillBuffer 
 				If (Length:C16(fileBuffer_buffer)=0)  // buffer still empty so must be done
 					$noMoreDataToRead:=True:C214
 				End if 
@@ -54,5 +54,5 @@ If (Asserted:C1132(Count parameters:C259=1))
 			fileBuffer_curPos:=fileBuffer_curPos+BLOB size:C605($vx_tmpBuffer)
 	End case 
 	
-End if   // ASSERT
+End if 
 $0:=$tmpTxt

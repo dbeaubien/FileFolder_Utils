@@ -1,5 +1,5 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
-  // Method: FileBuffer_FillBuffer
+//%attributes = {"invisible":true,"preemptive":"capable"}
+  // Method: FileBuffer__FillBuffer
 
   // Gets as much data as is possible so that the buffer is full
 

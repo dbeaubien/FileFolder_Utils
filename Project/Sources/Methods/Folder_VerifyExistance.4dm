@@ -1,5 +1,5 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
-  // Folder_VerifyExistance (path to folder)
+  // Folder_VerifyExistance (pathToFolder)
   // 
   // DESCRIPTION:
   //   Creates a folder if it does not exist. If necessary, it will

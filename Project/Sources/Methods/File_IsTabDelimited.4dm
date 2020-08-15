@@ -3,10 +3,10 @@
   // File_IsTabDelimited (text) : boolean
   //
   // DESCRIPTION
-  //   Returns true if the file is a CSV.
+  //   Returns true if the file is tab-delimited.
   //
   // TESTS performed:
-  //   1. Is file extension ".txt"
+  //   1. Is file extension ".tsv" or ".txt"
   //   2. Look at first line, expect line of tab delimited values.
   //   3. At least 2 non-empty values in the header line.
   //
@@ -18,7 +18,7 @@ If (Asserted:C1132(Count parameters:C259=1))
 	$pathToFile:=$1
 	
 	Case of 
-		: (Not:C34(STR_IsOneOf ($pathToFile;"@.txt")))
+		: (Not:C34(STR_IsOneOf ($pathToFile;"@.txt";"@.tsv")))
 		: (Not:C34(File_DoesExist ($pathToFile)))
 		Else 
 			C_TIME:C306($docRef)

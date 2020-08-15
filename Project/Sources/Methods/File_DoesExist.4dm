@@ -1,10 +1,10 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
-  // File_DoesExist (path to file) : does exist
+  // File_DoesExist (filePath) : doesExist
   // File_DoesExist (text) : boolean
   // 
   // DESCRIPTION:
   //   Returns true if the file exists. 
-  //   It will create any parent folders if missing.
+  //   Any missing parent folders will be created if missing.
   //
 C_TEXT:C284($1;$filePath)  // Path to file
 C_BOOLEAN:C305($0;$doesExist)  // File does exist

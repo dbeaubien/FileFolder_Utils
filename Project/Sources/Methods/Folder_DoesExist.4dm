@@ -1,5 +1,5 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable","folder":"File + Folder","lang":"en"}
-  // Folder_DoesExist (path to folder) : doesExist
+  // Folder_DoesExist (pathToFolder) : doesExist
   // 
   // DESCRIPTION:
   //   Returns true if the folder exists

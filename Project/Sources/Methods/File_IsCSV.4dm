@@ -4,7 +4,7 @@
   //
   // DESCRIPTION
   //   Returns true if the file is a CSV.
-  //   Recognizes a 1st line of "sep=" line.
+  //   Recognizes a 1st line of of the csv file is a "sep=" line.
   //
   // TESTS performed:
   //   1. Is file extension ".csv" or ".txt"

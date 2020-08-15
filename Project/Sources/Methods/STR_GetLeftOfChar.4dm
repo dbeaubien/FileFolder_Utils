@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
   // STR_GetLeftOfChar (textToSplit; pivotChar) : textToTheLeftOfPivotChar
   // STR_GetLeftOfChar (text; text) : text
   // 

@@ -2,7 +2,7 @@
   // Folder_ParentName (folderPath) : parentFolderPath
   //
   // DESCRIPTION
-  //   Returns the Parent Name of the file pathname we pass in
+  //   Returns the parent folder of the folderPath passed in.
 
 C_TEXT:C284($1;$folderPath)
 C_TEXT:C284($0;$parentFolderPath)
