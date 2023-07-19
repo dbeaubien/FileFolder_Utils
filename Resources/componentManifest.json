@@ -1,14 +1,18 @@
 ﻿{
 	"author": "Dani Beaubien",
 	"copyrights": "Open Source",
-	"version": "Build 2020818",
-	"buildDate": "2020-08-18",
+	"version": "Build 2023719",
+	"buildDate": "2023-07-19",
 	"url": "https://github.com/4D-Open-Source/FileFolder_Utils",
 	"manifestFormatVersion": "1.0",
-	"buildWith4DVersion": "v18.2 final (build 252363)",
+	"buildWith4DVersion": "v19.6 final (build 286791)",
 	"methodList": [
+		"Array_ConvertFromTextDelimited",
+		"Array_Empty",
+		"CSV_LineIsComplete",
 		"File_DoesExist",
 		"File_IsCSV",
+		"File_IsDelimited",
 		"File_IsJPG",
 		"File_IsPNG",
 		"File_IsTabDelimited",
@@ -17,12 +21,15 @@
 		"FileBuffer_FetchData_BySize",
 		"FileBuffer_FetchData_ByString",
 		"FileBuffer_FetchData_PeekAhead",
+		"FileBuffer_FetchDelimitedLne",
 		"FileBuffer_FetchTabDelimitedLne",
 		"FileBuffer_GetFilePostion",
 		"FileBuffer_Init",
 		"FileBuffer_TellMeTheEOL",
 		"Folder_DoesExist",
 		"Folder_ParentName",
-		"Folder_VerifyExistance"
+		"Folder_VerifyExistance",
+		"PTR_IsArray",
+		"STR_ParseLineToCsvValues"
 	]
 }

@@ -1,7 +1,4 @@
-﻿{
-	"(Default Forms)": {},
-	"(Default Project Methods)": {},
-	"(Default Tables)": {},
+{
 	"File Methods": {
 		"methods": [
 			"File_DoesExist",
@@ -43,11 +40,5 @@
 			"UTF8_GetByteCountFrom1stChar"
 		]
 	},
-	"trash": {
-		"groups": [
-			"(Default Forms)",
-			"(Default Project Methods)",
-			"(Default Tables)"
-		]
-	}
+	"trash": {}
 }

@@ -1,4 +1,5 @@
 //%attributes = {"invisible":true}
+
 C_TEXT:C284(fileBuffer_buffer)
 C_TEXT:C284(fileBuffer_charSet)
 C_TEXT:C284(fileBuffer_csv_separator)
