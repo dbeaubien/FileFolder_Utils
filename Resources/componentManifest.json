@@ -1,11 +1,11 @@
 ﻿{
 	"author": "Dani Beaubien",
 	"copyrights": "Open Source",
-	"version": "Build 2023719",
-	"buildDate": "2023-07-19",
+	"version": "Build 202427",
+	"buildDate": "2024-02-07",
 	"url": "https://github.com/4D-Open-Source/FileFolder_Utils",
 	"manifestFormatVersion": "1.0",
-	"buildWith4DVersion": "v19.6 final (build 286791)",
+	"buildWith4DVersion": "v20.2 final (build 100956)",
 	"methodList": [
 		"Array_ConvertFromTextDelimited",
 		"Array_Empty",
