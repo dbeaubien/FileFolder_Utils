@@ -6,7 +6,13 @@ C_LONGINT:C283($index)
 
 // Initialise our variables and setup the test cases
 UnitTest_Init("all")
-UnitTest_Setup_IHCore
+UnitTest_Init("all_soft")
+UnitTest_AddTestCase("FileBuffer__UnitTests")
+
+If (Structure file:C489(*)=Structure file:C489)  // Only open dialog if this structure is the host
+	UnitTest_ShowDialog
+End if 
+
 UnitTest__Stopwatch("start")
 
 // Run all testcases

@@ -22,7 +22,7 @@ If (FileBuffer_GetFilePostion<=1)  // first line; check to see if we have a "sep
 End if 
 $next_line:=FileBuffer_FetchData_ByString($end_of_line)  // fetch so at the start of the next value
 
-var $buffer; $line_to_test : Text
+var $line_to_test : Text
 If ($next_line=("@"+$end_of_line))  // strip out our EOL
 	$line_to_test:=Substring:C12($next_line; 1; Length:C16($next_line)-Length:C16($end_of_line))
 Else 
