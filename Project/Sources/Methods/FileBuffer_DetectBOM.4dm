@@ -42,4 +42,8 @@ If (fileBuffer_charSet="") && (BLOB size:C605($blob)>=2)
 	End if 
 End if 
 
+If (fileBuffer_charSet="")
+	fileBuffer_charSet:="latin1"
+End if 
+
 SET DOCUMENT POSITION:C482(fileBuffer_DocRef; 0; 1)  // position 0 releative to document start

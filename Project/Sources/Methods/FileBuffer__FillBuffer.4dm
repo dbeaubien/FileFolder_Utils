@@ -10,6 +10,9 @@ $data_size_in_bytes:=fileBuffer_MaxSize-Length:C16(fileBuffer_buffer)
 If ($data_size_in_bytes>0)  // if there is room in the buffer
 	var fileBuffer_charSet : Text
 	Case of 
+		: (fileBuffer_charSet="UTF-8")
+			RECEIVE PACKET:C104(fileBuffer_DocRef; $temporary_text; $data_size_in_bytes)  // let 4D handle it
+			
 		: (fileBuffer_charSet="UTF-16@")
 			RECEIVE PACKET:C104(fileBuffer_DocRef; $temporary_text; $data_size_in_bytes)  // let 4D handle it
 			
@@ -66,8 +69,12 @@ If ($data_size_in_bytes>0)  // if there is room in the buffer
 				End if 
 			End if 
 			
-			$temporary_text:=BLOB to text:C555($blob; UTF8 text without length:K22:17)
-			
+			gError:=""
+			ON ERR CALL:C155("Error_Blob_Text"; ek local:K92:1)
+			$temporary_text:=Convert to text:C1012($blob; fileBuffer_charSet)
+			If (gError#"")
+				$temporary_text:=BLOB to text:C555($blob; UTF8 text without length:K22:17)
+			End if 
 			If ($temporary_text="") & (BLOB size:C605($blob)>0)
 				$temporary_text:=BLOB to text:C555($blob; UTF8 C string:K22:15)
 				

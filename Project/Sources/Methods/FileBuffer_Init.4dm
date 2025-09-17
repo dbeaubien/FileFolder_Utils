@@ -35,7 +35,9 @@ var fileBuffer_DocSize; fileBuffer_curPos : Integer
 fileBuffer_DocSize:=Get document size:C479(fileBuffer_DocRef)
 fileBuffer_curPos:=1
 
-fileBuffer_charSet:=""
+If (Count parameters:C259=3)
+	fileBuffer_charSet:=$fileBuffer_charSet
+End if 
 FileBuffer_DetectBOM
 
 // load some data

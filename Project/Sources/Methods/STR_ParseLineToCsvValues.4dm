@@ -5,8 +5,7 @@
 // DESCRIPTION
 //   Converts a line is csv text into a collection of the values.
 //
-#DECLARE($csv_line_as_text : Text; $separator : Text)
-var $values : Collection
+#DECLARE($csv_line_as_text : Text; $separator : Text)->$values : Collection
 // ----------------------------------------------------
 // HISTORY
 //   Created by: Dani Beaubien (05/25/2020)
