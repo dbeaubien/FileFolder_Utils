@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 // STR_IsOneOf (srcTxt; choice1; ... ; choiceN) : match
 // STR_IsOneOf (txt; txt; ... ; txt) : boolean
 // 

@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_AssertArraySize
 // Asserts whether an arrays is of a given size
 // $1 = Expected size

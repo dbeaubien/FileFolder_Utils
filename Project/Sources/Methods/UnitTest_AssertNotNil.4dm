@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_AssertNotNil
 // Asserts whether a pointer is not a nil pointer
 // $1 = Pointer

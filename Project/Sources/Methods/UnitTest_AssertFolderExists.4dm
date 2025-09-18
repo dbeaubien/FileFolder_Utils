@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_AssertFolderExists
 // Asserts whether a folder exists
 // $1 = Foldername

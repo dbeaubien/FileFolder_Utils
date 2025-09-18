@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 // PTR_IsArray (pointer) : isArray
 // PTR_IsArray (pointer) : boolean
 //

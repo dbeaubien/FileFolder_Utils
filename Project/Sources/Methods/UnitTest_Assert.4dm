@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_Assert
 // Keeps track of passed or failed assertions and logs any errors found
 // $1 = Condition

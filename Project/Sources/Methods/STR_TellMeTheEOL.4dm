@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 // STR_TellMeTheEOL (string) : theEOL
 // STR_TellMeTheEOL (text) : text
 // 

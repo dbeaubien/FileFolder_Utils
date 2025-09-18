@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 // UTF8_GetByteCountFrom1stChar (charByte) : numBytes
 // UTF8_GetByteCountFrom1stChar (longint) : longint
 //

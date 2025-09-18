@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"incapable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_Init
 // Initialises the variables used by the unittests
 // $1 = What (all, testcases, stats)

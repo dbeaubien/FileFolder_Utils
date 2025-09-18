@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_AssertEqualTextAndCase
 // Asserts whether two texts are equal and the same case
 // $1 = Expected
