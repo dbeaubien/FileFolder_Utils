@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest__ResolvePointer
 // Turns a pointer into a textual representation
 // $1 = Pointer

@@ -106,38 +106,14 @@ C_TEXT:C284(File_DoesExist; $1)
 //File_GetFileName
 C_TEXT:C284(File_GetFileName; $0)
 C_TEXT:C284(File_GetFileName; $1)
-C_POINTER:C301(Array_SetSize; ${2})
-C_LONGINT:C283(Array_SetSize; $1)
 
 //File_GetFolderName
 C_TEXT:C284(File_GetFolderName; $0)
 C_TEXT:C284(File_GetFolderName; $1)
 
-//Array_ConvertToTextDelimited
-C_TEXT:C284(Array_ConvertToTextDelimited; $0)
-C_POINTER:C301(Array_ConvertToTextDelimited; $1)
-C_TEXT:C284(Array_ConvertToTextDelimited; $2)
-
-//Array_AddLongintElement_UNIQUE
-C_POINTER:C301(Array_AddLongintElement_UNIQUE; $1)
-C_LONGINT:C283(Array_AddLongintElement_UNIQUE; $2)
-
-//Array_AddTextElement
-C_POINTER:C301(Array_AddTextElement; $1)
-C_TEXT:C284(Array_AddTextElement; $2)
-
-//Array_Copy
-C_POINTER:C301(Array_Copy; $1)
-C_POINTER:C301(Array_Copy; $2)
-C_LONGINT:C283(Array_Copy; $3)
-
 //FileBuffer_FetchTabDelimitedLne
 C_TEXT:C284(FileBuffer_FetchTabDelimitedLne; $1)
 C_POINTER:C301(FileBuffer_FetchTabDelimitedLne; $2)
-
-//Array_CopyAndRemoveDuplicates
-C_POINTER:C301(Array_CopyAndRemoveDuplicates; $1)
-C_POINTER:C301(Array_CopyAndRemoveDuplicates; $2)
 
 //FileBuffer_FetchData_PeekAhead
 C_TEXT:C284(FileBuffer_FetchData_PeekAhead; $0)
@@ -151,18 +127,9 @@ C_LONGINT:C283(UTF8_GetByteCountFrom1stChar; $1)
 C_BOOLEAN:C305(File_IsTabDelimited; $0)
 C_TEXT:C284(File_IsTabDelimited; $1)
 
-//Date2String
-C_TEXT:C284(Date2String; $0)
-C_DATE:C307(Date2String; $1)
-C_TEXT:C284(Date2String; $2)
-
 //File_IsCSV
 C_BOOLEAN:C305(File_IsCSV; $0)
 C_TEXT:C284(File_IsCSV; $1)
-
-//Array_AddLongintElement
-C_POINTER:C301(Array_AddLongintElement; $1)
-C_LONGINT:C283(Array_AddLongintElement; $2)
 
 //Array_Empty
 C_POINTER:C301(Array_Empty; $1)
@@ -173,10 +140,6 @@ C_TEXT:C284(FileBuffer_TellMeTheEOL; $0)
 //Folder_DoesExist
 C_BOOLEAN:C305(Folder_DoesExist; $0)
 C_TEXT:C284(Folder_DoesExist; $1)
-
-//Array_RemoveElementIfExists
-C_POINTER:C301(Array_RemoveElementIfExists; $1)
-C_TEXT:C284(Array_RemoveElementIfExists; $2)
 
 //FileBuffer_EOF
 C_BOOLEAN:C305(FileBuffer_EOF; $0)
@@ -214,10 +177,6 @@ C_TEXT:C284(FileBuffer_Init; $3)
 C_TEXT:C284(FileBuffer_FetchDelimitedLne; $1)
 C_POINTER:C301(FileBuffer_FetchDelimitedLne; $2)
 C_TEXT:C284(FileBuffer_FetchDelimitedLne; $3)
-
-//Array_AddTextElement_Prepend
-C_POINTER:C301(Array_AddTextElement_Prepend; $1)
-C_TEXT:C284(Array_AddTextElement_Prepend; $2)
 
 //UnitTest_AssertArraySize
 C_LONGINT:C283(UnitTest_AssertArraySize; $1)
@@ -268,10 +227,6 @@ C_TEXT:C284(UnitTest_AssertEqualTextAndCase; $1)
 C_TEXT:C284(UnitTest_AssertEqualTextAndCase; $2)
 C_TEXT:C284(UnitTest_AssertEqualTextAndCase; $3)
 
-//Array_AddPtrElement
-C_POINTER:C301(Array_AddPtrElement; $1)
-C_POINTER:C301(Array_AddPtrElement; $2)
-
 //DEV_ASSERT_PARMCOUNT
 C_BOOLEAN:C305(DEV_ASSERT_PARMCOUNT; $0)
 C_TEXT:C284(DEV_ASSERT_PARMCOUNT; $1)
@@ -281,9 +236,6 @@ C_LONGINT:C283(DEV_ASSERT_PARMCOUNT; $3)
 //CallChain_FormatPretty
 C_TEXT:C284(CallChain_FormatPretty; $0)
 C_COLLECTION:C1488(CallChain_FormatPretty; $1)
-
-//Array_ReduceToSortedUnique
-C_POINTER:C301(Array_ReduceToSortedUnique; $1)
 
 //UnitTest_Assert
 C_BOOLEAN:C305(UnitTest_Assert; $1)
@@ -297,23 +249,12 @@ C_REAL:C285(UnitTest_AssertEqualReal; $1)
 C_REAL:C285(UnitTest_AssertEqualReal; $2)
 C_TEXT:C284(UnitTest_AssertEqualReal; $3)
 
-//Array_KVPair_GetValueByKey
-C_TEXT:C284(Array_KVPair_GetValueByKey; $0)
-C_TEXT:C284(Array_KVPair_GetValueByKey; $1)
-C_POINTER:C301(Array_KVPair_GetValueByKey; $2)
-C_POINTER:C301(Array_KVPair_GetValueByKey; $3)
-
 //FileBuffer_FetchCSVLine
 C_TEXT:C284(FileBuffer_FetchCSVLine; $1)
 C_POINTER:C301(FileBuffer_FetchCSVLine; $2)
 
 //UnitTest_SaveLog
 C_TEXT:C284(UnitTest_SaveLog; $1)
-
-//Array_InsertValueAtPos
-C_LONGINT:C283(Array_InsertValueAtPos; $1)
-C_POINTER:C301(Array_InsertValueAtPos; $2)
-C_POINTER:C301(Array_InsertValueAtPos; $3)
 C_POINTER:C301(File_ImportTabDelimited2Arrays; ${2})
 C_TEXT:C284(File_ImportTabDelimited2Arrays; $1)
 

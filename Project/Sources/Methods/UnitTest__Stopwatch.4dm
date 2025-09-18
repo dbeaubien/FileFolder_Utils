@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 //(PM) UnitTest__Stopwatch
 // Controls the stopwatch functions for the unit tests
 // $1 = Action

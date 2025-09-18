@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 // CallChain_FormatPretty (callChainCollection) : prettyCallChain
 //
 var $1; $callChainCollection : Collection

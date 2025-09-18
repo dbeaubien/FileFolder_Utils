@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"incapable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_RunTest
 // Runs a single test for the current testcase
 // $1 = Test name

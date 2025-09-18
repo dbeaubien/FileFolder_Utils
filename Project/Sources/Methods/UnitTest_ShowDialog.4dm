@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"incapable"}
+//%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_ShowDialog
 
 C_LONGINT:C283($window)
