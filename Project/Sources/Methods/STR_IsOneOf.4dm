@@ -1,31 +1,27 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
-  // STR_IsOneOf (srcTxt; choice1; ... ; choiceN) : match
-  // STR_IsOneOf (txt; txt; ... ; txt) : boolean
-  // 
-  // DESCRIPTION
-  //   Returns true is the first parameter matches one of the other
-  //   parameters. Use this method to see if the value is part of a
-  //   certain list.
-  //
-C_TEXT:C284($1;$vt_srcText)
+//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+// STR_IsOneOf (srcTxt; choice1; ... ; choiceN) : match
+// STR_IsOneOf (txt; txt; ... ; txt) : boolean
+// 
+// DESCRIPTION
+//   Returns true is the first parameter matches one of the other
+//   parameters. Use this method to see if the value is part of a
+//   certain list.
+//
+// #DECLARE($source_text : Text; ... : Text)->$match_was_found : Boolean
+C_TEXT:C284($1; $source_text)
 C_TEXT:C284(${2})  // values to match against
-C_BOOLEAN:C305($0;$vb_matchWasFound)
-  // ----------------------------------------------------
-  // HISTORY
-  //   Created by: DB (11/05/09)
-  // ----------------------------------------------------
+C_BOOLEAN:C305($0; $match_was_found)
+// ----------------------------------------------------
+// HISTORY
+//   Created by: DB (11/05/09)
+// ----------------------------------------------------
 
-$vb_matchWasFound:=False:C215
-If (Asserted:C1132(Count parameters:C259>=2;Current method name:C684+" expects at least 2 paramters."))
-	$vt_srcText:=$1
-	
-	C_LONGINT:C283($i)
-	For ($i;2;Count parameters:C259)
-		If ($vt_srcText=${$i})
-			$vb_matchWasFound:=True:C214
-			$i:=10000  // break the loop
-		End if 
-	End for 
-	
-End if 
-$0:=$vb_matchWasFound
+ASSERT:C1129(Count parameters:C259>=2; Current method name:C684+" expects at least 2 paramters.")
+
+var $index : Integer
+For ($index; 2; Count parameters:C259)
+	If ($source_text=${$index})
+		$match_was_found:=True:C214
+		return 
+	End if 
+End for 

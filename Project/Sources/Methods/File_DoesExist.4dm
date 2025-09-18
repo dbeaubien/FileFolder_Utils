@@ -1,24 +1,16 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
-  // File_DoesExist (filePath) : doesExist
-  // File_DoesExist (text) : boolean
-  // 
-  // DESCRIPTION:
-  //   Returns true if the file exists. 
-  //   Any missing parent folders will be created if missing.
-  //
-C_TEXT:C284($1;$filePath)  // Path to file
-C_BOOLEAN:C305($0;$doesExist)  // File does exist
+// File_DoesExist (file_path) : does_file_exist
+// File_DoesExist (text) : boolean
+// 
+// DESCRIPTION:
+//   Returns true if the file exists. 
+//   Any missing parent folders will be created if missing.
+//
+#DECLARE($file_path : Text)->$does_file_exist : Boolean
 
-$doesExist:=False:C215
-If (Asserted:C1132(Count parameters:C259=1))
-	$filePath:=$1
-	
-	If ($filePath#"")
-		Folder_VerifyExistance (Folder_ParentName ($filePath))  // ensure the parent folder exists
-		
-		$doesExist:=(Test path name:C476($filePath)=Is a document:K24:1)
-	End if 
-	
+ASSERT:C1129(Count parameters:C259=1)
+
+If ($file_path#"")
+	Folder_VerifyExistance(Folder_ParentName($file_path))  // ensure the parent folder exists
+	$does_file_exist:=(Test path name:C476($file_path)=Is a document:K24:1)
 End if 
-
-$0:=$doesExist
