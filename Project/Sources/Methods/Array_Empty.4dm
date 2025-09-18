@@ -1,14 +1,10 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 // Method: Array_Empty (array of values)
-// Method: Array_Empty (pointer to array)
 // 
 // DESCRIPTION
 //   Removes any and all elements in the array
 //
 #DECLARE($arrayPtr : Pointer)
-// ----------------------------------------------------
-// HISTORY
-//    Created by: DB (09/19/04)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 ASSERT:C1129(PTR_IsArray($arrayPtr); Current method name:C684+" $1 is not an array ptr.")

@@ -192,11 +192,6 @@ C_LONGINT:C283(UnitTest_AssertRecordCount; $1)
 C_POINTER:C301(UnitTest_AssertRecordCount; $2)
 C_TEXT:C284(UnitTest_AssertRecordCount; $3)
 
-//DEV_ASSERT
-C_BOOLEAN:C305(DEV_ASSERT; $0)
-C_BOOLEAN:C305(DEV_ASSERT; $1)
-C_TEXT:C284(DEV_ASSERT; $2)
-
 //FileBuffer_FetchData_BySize
 C_TEXT:C284(FileBuffer_FetchData_BySize; $0)
 C_LONGINT:C283(FileBuffer_FetchData_BySize; $1)
@@ -226,12 +221,6 @@ C_TEXT:C284(FileBuffer__UnitTests; $1)
 C_TEXT:C284(UnitTest_AssertEqualTextAndCase; $1)
 C_TEXT:C284(UnitTest_AssertEqualTextAndCase; $2)
 C_TEXT:C284(UnitTest_AssertEqualTextAndCase; $3)
-
-//DEV_ASSERT_PARMCOUNT
-C_BOOLEAN:C305(DEV_ASSERT_PARMCOUNT; $0)
-C_TEXT:C284(DEV_ASSERT_PARMCOUNT; $1)
-C_LONGINT:C283(DEV_ASSERT_PARMCOUNT; $2)
-C_LONGINT:C283(DEV_ASSERT_PARMCOUNT; $3)
 
 //CallChain_FormatPretty
 C_TEXT:C284(CallChain_FormatPretty; $0)
