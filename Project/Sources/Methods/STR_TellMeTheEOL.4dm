@@ -1,47 +1,39 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
-  // STR_TellMeTheEOL (string) : theEOL
-  // STR_TellMeTheEOL (text) : text
-  // 
-  // DESCRIPTION
-  //   scans the text and returns what the EOLs are.
-  //
-C_TEXT:C284($1;$vt_srcTxt)
-C_TEXT:C284($0;$vt_theEOL)
-  // ----------------------------------------------------
-  // HISTORY
-  //   Created by: DB (10/01/12)
-  // ----------------------------------------------------
+//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+// STR_TellMeTheEOL (string) : theEOL
+// STR_TellMeTheEOL (text) : text
+// 
+// DESCRIPTION
+//   scans the text and returns what the EOLs are.
+//
+#DECLARE($source : Text)->$end_of_line : Text
+// ----------------------------------------------------
+ASSERT:C1129(Count parameters:C259=1)
+$end_of_line:=""
 
-$vt_theEOL:=""
-If (Asserted:C1132(Count parameters:C259=1))
-	$vt_srcTxt:=$1
-	
-	C_LONGINT:C283($vl_pos_CR;$vl_pos_LF)
-	$vl_pos_CR:=Position:C15(Char:C90(Carriage return:K15:38);$vt_srcTxt;*)
-	$vl_pos_LF:=Position:C15(Char:C90(Line feed:K15:40);$vt_srcTxt;*)
-	
-	Case of 
-		: ($vl_pos_CR=0) & ($vl_pos_LF=0)  // NOT GOOD.
-			$vt_theEOL:=Char:C90(Carriage return:K15:38)  // GUESS
-			
-		: ($vl_pos_CR=0) & ($vl_pos_LF#0)
-			$vt_theEOL:=Char:C90(Line feed:K15:40)
-			
-		: ($vl_pos_LF=0) & ($vl_pos_CR#0)
-			$vt_theEOL:=Char:C90(Carriage return:K15:38)
-			
-			
-		: ($vl_pos_CR#0) & ($vl_pos_LF<$vl_pos_CR)  // NOT GOOD.
-			$vt_theEOL:=Char:C90(Line feed:K15:40)  // GUESS
-			
-			
-		: ($vl_pos_CR#0) & ($vl_pos_LF=($vl_pos_CR+1))
-			$vt_theEOL:=Char:C90(Carriage return:K15:38)+Char:C90(Line feed:K15:40)
-			
-		Else 
-			$vt_theEOL:=Char:C90(Carriage return:K15:38)  // GUESS
-			
-	End case 
-	
-End if   // ASSERT
-$0:=$vt_theEOL
+var $carriage_return_position; $line_feed_position : Integer
+$carriage_return_position:=Position:C15(Char:C90(Carriage return:K15:38); $source; *)
+$line_feed_position:=Position:C15(Char:C90(Line feed:K15:40); $source; *)
+
+Case of 
+	: ($carriage_return_position=0) & ($line_feed_position=0)  // NOT GOOD
+		$end_of_line:=Char:C90(Carriage return:K15:38)  // GUESS
+		
+	: ($carriage_return_position=0) & ($line_feed_position#0)
+		$end_of_line:=Char:C90(Line feed:K15:40)
+		
+	: ($line_feed_position=0) & ($carriage_return_position#0)
+		$end_of_line:=Char:C90(Carriage return:K15:38)
+		
+	: ($carriage_return_position#0) & ($line_feed_position=($carriage_return_position+1))
+		$end_of_line:=Char:C90(Carriage return:K15:38)+Char:C90(Line feed:K15:40)
+		
+	: ($line_feed_position#0) & ($carriage_return_position<$line_feed_position)
+		$end_of_line:=Char:C90(Carriage return:K15:38)
+		
+	: ($carriage_return_position#0) & ($line_feed_position<$carriage_return_position)
+		$end_of_line:=Char:C90(Line feed:K15:40)
+		
+	Else 
+		$end_of_line:=Char:C90(Carriage return:K15:38)  // GUESS
+		
+End case 

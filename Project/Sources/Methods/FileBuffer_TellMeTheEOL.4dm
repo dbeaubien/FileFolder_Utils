@@ -1,16 +1,14 @@
-//%attributes = {"invisible":true,"shared":true,"preemptive":"capable","lang":"en"}
-  // FileBuffer_TellMeTheEOL : theEOL
-  // 
-  // DESCRIPTION
-  //   Scans the filebuffer to figure out what the EOL is.
-  //
-C_TEXT:C284($0;$theEOL)
-  // ----------------------------------------------------
-  // HISTORY
-  //   Created by: DB (08/20/10)
-  // ----------------------------------------------------
+//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+// FileBuffer_TellMeTheEOL : theEOL
+// 
+// DESCRIPTION
+//   Scans the filebuffer to figure out what the EOL is.
+//
+#DECLARE()->$end_of_line : Text
+// ----------------------------------------------------
+// HISTORY
+//   Created by: DB (08/20/10)
+// ----------------------------------------------------
 
-FileBuffer__FillBuffer   // top off the buffer
-$theEOL:=STR_TellMeTheEOL (fileBuffer_buffer)
-
-$0:=$theEOL
+FileBuffer__FillBuffer  // top off the buffer
+$end_of_line:=STR_TellMeTheEOL(fileBuffer_buffer)

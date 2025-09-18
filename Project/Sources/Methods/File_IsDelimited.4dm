@@ -11,39 +11,32 @@
 //   3. At least 2 non-empty values in the header line.
 //   4. delimiter is a single character
 //
-C_TEXT:C284($1; $pathToFile)
-C_TEXT:C284($2; $delimiterChar)
-C_BOOLEAN:C305($0; $isDelimited)
+#DECLARE($path_to_file : Text; $delimiter : Text)->$is_file_delimited : Boolean
 // ----------------------------------------------------
 // HISTORY
 //   Created by: Dani Beaubien (01/22/2021) - support any delimiter
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
-$pathToFile:=$1
-$delimiterChar:=$2
-$isDelimited:=False:C215
 
 Case of 
-	: (Not:C34(STR_IsOneOf($pathToFile; "@.csv"; "@.txt")))
-	: (Not:C34(File_DoesExist($pathToFile)))
+	: (Not:C34(STR_IsOneOf($path_to_file; "@.csv"; "@.txt")))
+	: (Not:C34(File_DoesExist($path_to_file)))
 	Else 
-		C_TIME:C306($docRef)
-		$docRef:=Open document:C264($pathToFile; ""; Read mode:K24:5)
+		var $document_reference : Time
+		$document_reference:=Open document:C264($path_to_file; ""; Read mode:K24:5)
 		If (OK=1)
-			FileBuffer_Init($docRef)
+			FileBuffer_Init($document_reference)
 			
-			C_TEXT:C284($eol)
-			$eol:=FileBuffer_TellMeTheEOL
+			var $end_of_line : Text
+			$end_of_line:=FileBuffer_TellMeTheEOL
 			
 			ARRAY TEXT:C222($valuesArr; 0)
-			FileBuffer_FetchDelimitedLne($eol; ->$valuesArr; $delimiterChar)
+			FileBuffer_FetchDelimitedLne($end_of_line; ->$valuesArr; $delimiter)
 			
 			// Must have more than one element
-			$isDelimited:=(Size of array:C274($valuesArr)>1)
+			$is_file_delimited:=(Size of array:C274($valuesArr)>1)
 			
-			CLOSE DOCUMENT:C267($docRef)
+			CLOSE DOCUMENT:C267($document_reference)
 		End if 
 		
 End case 
-
-$0:=$isDelimited

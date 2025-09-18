@@ -5,14 +5,12 @@
 // DESCRIPTION
 //   Removes any and all elements in the array
 //
-C_POINTER:C301($1; $arrayPtr)
+#DECLARE($arrayPtr : Pointer)
 // ----------------------------------------------------
 // HISTORY
 //    Created by: DB (09/19/04)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$arrayPtr:=$1
-
 ASSERT:C1129(PTR_IsArray($arrayPtr); Current method name:C684+" $1 is not an array ptr.")
 
 var $type : Integer

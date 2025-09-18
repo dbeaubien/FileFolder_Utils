@@ -1,81 +1,88 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
-  // Method: FileBuffer__FillBuffer
+//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
+// Method: FileBuffer__FillBuffer
 
-  // Gets as much data as is possible so that the buffer is full
+// Gets as much data as is possible so that the buffer is full
 
-C_TEXT:C284($tmpTxt)
-C_LONGINT:C283($dataSize)
-$dataSize:=fileBuffer_MaxSize-Length:C16(fileBuffer_buffer)
+var $temporary_text : Text
+var $data_size_in_bytes : Integer
+$data_size_in_bytes:=fileBuffer_MaxSize-Length:C16(fileBuffer_buffer)
 
-If ($dataSize>0)  // if there is room in the buffer
-	C_TEXT:C284(fileBuffer_charSet)
+If ($data_size_in_bytes>0)  // if there is room in the buffer
+	var fileBuffer_charSet : Text
 	Case of 
+		: (fileBuffer_charSet="UTF-8")
+			RECEIVE PACKET:C104(fileBuffer_DocRef; $temporary_text; $data_size_in_bytes)  // let 4D handle it
+			
 		: (fileBuffer_charSet="UTF-16@")
-			RECEIVE PACKET:C104(fileBuffer_DocRef;$tmpTxt;$dataSize)  // let 4D handle it
+			RECEIVE PACKET:C104(fileBuffer_DocRef; $temporary_text; $data_size_in_bytes)  // let 4D handle it
 			
 		: (fileBuffer_charSet="UTF-32@")
-			RECEIVE PACKET:C104(fileBuffer_DocRef;$tmpTxt;$dataSize)  // let 4D handle it
+			RECEIVE PACKET:C104(fileBuffer_DocRef; $temporary_text; $data_size_in_bytes)  // let 4D handle it
 			
 		Else 
 			
-			C_BLOB:C604($blob)
-			RECEIVE PACKET:C104(fileBuffer_DocRef;$blob;$dataSize)
+			var $blob : Blob
+			RECEIVE PACKET:C104(fileBuffer_DocRef; $blob; $data_size_in_bytes)
 			
-			If (BLOB size:C605($blob)=$dataSize) & ($dataSize>=3)  // Did we fetch all that we asked for? Means not at end of file yet?
-				  // Check to make sure we didn't cut up an UTF-8 character
-				  // See: https://www.instructables.com/id/Programming--how-to-detect-and-read-UTF-8-charact/
+			If (BLOB size:C605($blob)=$data_size_in_bytes) & ($data_size_in_bytes>=3)  // Did we fetch all that we asked for? Means not at end of file yet?
+				// Check to make sure we didn't cut up an UTF-8 character
+				// See: https://www.instructables.com/id/Programming--how-to-detect-and-read-UTF-8-charact/
 				
-				  // Check to see if the last byte loaded is part of a unicode character
-				C_LONGINT:C283($numBytes_lastChar;$numBytes_2ndlastChar;$numBytes_3rdlastChar)
-				$numBytes_lastChar:=UTF8_GetByteCountFrom1stChar ($blob{$dataSize-1})
-				$numBytes_2ndlastChar:=UTF8_GetByteCountFrom1stChar ($blob{$dataSize-2})
-				$numBytes_3rdlastChar:=UTF8_GetByteCountFrom1stChar ($blob{$dataSize-3})
+				// Check to see if the last byte loaded is part of a unicode character
+				var $numBytes_lastChar; $numBytes_2ndlastChar; $numBytes_3rdlastChar : Integer
+				$numBytes_lastChar:=UTF8_GetByteCountFrom1stChar($blob{$data_size_in_bytes-1})
+				$numBytes_2ndlastChar:=UTF8_GetByteCountFrom1stChar($blob{$data_size_in_bytes-2})
+				$numBytes_3rdlastChar:=UTF8_GetByteCountFrom1stChar($blob{$data_size_in_bytes-3})
 				
-				C_LONGINT:C283($numExtraBytesToLoad)
+				var $num_extra_bytes_to_load : Integer
 				Case of 
 					: ($numBytes_lastChar>1)
-						$numExtraBytesToLoad:=$numBytes_lastChar-1
+						$num_extra_bytes_to_load:=$numBytes_lastChar-1
 						
 					: ($numBytes_2ndlastChar>1)
-						$numExtraBytesToLoad:=$numBytes_2ndlastChar-2
+						$num_extra_bytes_to_load:=$numBytes_2ndlastChar-2
 						
 					: ($numBytes_3rdlastChar>1)
-						$numExtraBytesToLoad:=$numBytes_3rdlastChar-3
+						$num_extra_bytes_to_load:=$numBytes_3rdlastChar-3
 						
 					Else 
-						$numExtraBytesToLoad:=0
+						$num_extra_bytes_to_load:=0
 				End case 
 				
-				If ($numExtraBytesToLoad>0)
-					C_BLOB:C604($tmpBlob)
-					SET BLOB SIZE:C606($tmpBlob;0)
-					RECEIVE PACKET:C104(fileBuffer_DocRef;$tmpBlob;$numExtraBytesToLoad)
+				If ($num_extra_bytes_to_load>0)
+					var $temporary_blob : Blob
+					SET BLOB SIZE:C606($temporary_blob; 0)
+					RECEIVE PACKET:C104(fileBuffer_DocRef; $temporary_blob; $num_extra_bytes_to_load)
 					
-					C_LONGINT:C283($offset)
-					SET BLOB SIZE:C606($blob;BLOB size:C605($blob)+$numExtraBytesToLoad)
-					COPY BLOB:C558($tmpBlob;$blob;$offset;$dataSize;$numExtraBytesToLoad)
+					var $blob_offset : Integer
+					SET BLOB SIZE:C606($blob; BLOB size:C605($blob)+$num_extra_bytes_to_load)
+					COPY BLOB:C558($temporary_blob; $blob; $blob_offset; $data_size_in_bytes; $num_extra_bytes_to_load)
 				End if 
 				
 			End if 
 			
-			  // Remove the BOM if there is one
+			// Remove the BOM if there is one
 			If (BLOB size:C605($blob)>3)
-				  // https://en.wikipedia.org/wiki/Byte_order_mark
+				// https://en.wikipedia.org/wiki/Byte_order_mark
 				If ($blob{0}=239) & ($blob{1}=187) & ($blob{2}=191)  // starts with the UTF-8 BOM?
-					DELETE FROM BLOB:C560($blob;0;3)  // remove the BOM
+					DELETE FROM BLOB:C560($blob; 0; 3)  // remove the BOM
 				End if 
 			End if 
 			
-			$tmpTxt:=BLOB to text:C555($blob;UTF8 text without length:K22:17)
-			
-			If ($tmpTxt="") & (BLOB size:C605($blob)>0)
-				$tmpTxt:=BLOB to text:C555($blob;UTF8 C string:K22:15)
+			gError:=""
+			ON ERR CALL:C155("Error_Blob_Text"; ek local:K92:1)
+			$temporary_text:=Convert to text:C1012($blob; fileBuffer_charSet)
+			If (gError#"")
+				$temporary_text:=BLOB to text:C555($blob; UTF8 text without length:K22:17)
+			End if 
+			If ($temporary_text="") & (BLOB size:C605($blob)>0)
+				$temporary_text:=BLOB to text:C555($blob; UTF8 C string:K22:15)
 				
-				If ($tmpTxt="") & (BLOB size:C605($blob)>0)
-					$tmpTxt:=BLOB to text:C555($blob;Mac text without length:K22:10)
+				If ($temporary_text="") & (BLOB size:C605($blob)>0)
+					$temporary_text:=BLOB to text:C555($blob; Mac text without length:K22:10)
 				End if 
 			End if 
 	End case 
 	
-	fileBuffer_buffer:=fileBuffer_buffer+$tmpTxt
+	fileBuffer_buffer:=fileBuffer_buffer+$temporary_text
 End if 
