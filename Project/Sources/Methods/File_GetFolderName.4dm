@@ -10,4 +10,19 @@
 ASSERT:C1129(Count parameters:C259=1)
 ASSERT:C1129($document_platformPath#"")
 
-$folder_platformPath:=File:C1566($document_platformPath; fk platform path:K87:2).parent.platformPath
+var $path_parts : Collection
+//$path_parts:=[]
+$path_parts:=Split string:C1554($document_platformPath; Folder separator:K24:12)
+If ($path_parts.at(-1)="")
+	$folder_platformPath:=$path_parts.pop()  // just get rid of the last part since it is blank
+End if 
+
+If ($path_parts.length>1)
+	$folder_platformPath:=$path_parts.pop()  // just get rid of the last part
+	$folder_platformPath:=$path_parts.join(Folder separator:K24:12)
+	$folder_platformPath+=Folder separator:K24:12
+Else 
+	$folder_platformPath:=""
+End if 
+
+//$folder_platformPath:=File($document_platformPath; fk platform path).parent.platformPath

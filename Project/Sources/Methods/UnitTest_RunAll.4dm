@@ -8,6 +8,7 @@ C_LONGINT:C283($index)
 UnitTest_Init("all")
 UnitTest_Init("all_soft")
 UnitTest_AddTestCase("FileBuffer__UnitTests")
+UnitTest_AddTestCase("File__UnitTests")
 UnitTest_AddTestCase("CSV__UnitTests")
 
 If (Structure file:C489(*)=Structure file:C489)  // Only open dialog if this structure is the host
