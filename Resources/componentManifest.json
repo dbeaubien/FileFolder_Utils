@@ -1,11 +1,11 @@
 ﻿{
 	"author": "Dani Beaubien",
 	"copyrights": "Open Source",
-	"version": "Build 2025919",
-	"buildDate": "2025-09-19",
+	"version": "Build 20251014",
+	"buildDate": "2025-10-14",
 	"url": "https://github.com/4D-Open-Source/FileFolder_Utils",
 	"manifestFormatVersion": "1.0",
-	"buildWith4DVersion": "v20.6 final (build 101680)",
+	"buildWith4DVersion": "v20.7 final (build 101905)",
 	"methodList": [
 		"CSV_LineFromCollection",
 		"CSV_LineFromFieldCollection",
