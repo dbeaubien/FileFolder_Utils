@@ -24,10 +24,10 @@ If (Count parameters:C259=2)
 	If (Asserted:C1132($fileBuffer_MaxSize<=(1024*1024); "The max size of the buffer must be below "+String:C10(1024*1024)+" bytes"))
 		fileBuffer_MaxSize:=$fileBuffer_MaxSize
 	Else 
-		fileBuffer_MaxSize:=1024*1024
+		fileBuffer_MaxSize:=1024*1024  // max is 1GB
 	End if   // ASSERT
 Else 
-	fileBuffer_MaxSize:=1024*100  // default to buffer to 100k
+	fileBuffer_MaxSize:=1024*512  // default to buffer to 512k
 End if 
 
 // record the size of the document
@@ -37,6 +37,8 @@ fileBuffer_curPos:=1
 
 If (Count parameters:C259=3)
 	fileBuffer_charSet:=$fileBuffer_charSet
+Else 
+	fileBuffer_charSet:=""
 End if 
 FileBuffer_DetectBOM
 

@@ -470,3 +470,6 @@ C_BLOB:C604(FileOnServer_AppendData; $2)
 
 //FileOnServer_Delete
 C_TEXT:C284(FileOnServer_Delete; $1)
+
+//OnErr_GetLastError
+C_LONGINT:C283(OnErr_GetLastError; $0)

@@ -27,13 +27,13 @@ Else
 			
 		: ($action="Basic Tests")
 			$fileContents:="test1,test2\rdata1,data2"
-			TEXT TO DOCUMENT:C1237($filePath; $fileContents)
+			TEXT TO DOCUMENT:C1237($filePath; $fileContents; "latin1"; Document unchanged:K24:18)
 			$docRef:=Open document:C264($filePath; ""; Read mode:K24:5)
 			UnitTest_AssertEqualLongint(1; OK)
 			FileBuffer_Init($docRef)
 			UnitTest_AssertEqualLongint(1; fileBuffer_curPos)
 			UnitTest_AssertEqualTextAndCase($fileContents; fileBuffer_buffer)
-			UnitTest_AssertEqualText("utf-8"; fileBuffer_charSet)
+			UnitTest_AssertEqualText("latin1"; fileBuffer_charSet)
 			UnitTest_AssertEqualText("\r"; FileBuffer_TellMeTheEOL)
 			UnitTest_AssertEqualText("test1,test2\r"; FileBuffer_FetchData_ByString(FileBuffer_TellMeTheEOL))
 			UnitTest_AssertEqualText("data"; FileBuffer_FetchData_ByString("1"; "ta"))
@@ -49,7 +49,7 @@ Else
 			
 		: ($action="Basic Delimiter Tests")
 			$fileContents:="test1"+Char:C90(Tab:K15:37)+"test2\rdata1"+Char:C90(Tab:K15:37)+"data2"
-			TEXT TO DOCUMENT:C1237($filePath; $fileContents)
+			TEXT TO DOCUMENT:C1237($filePath; $fileContents; "utf-16"; Document unchanged:K24:18)
 			$docRef:=Open document:C264($filePath; ""; Read mode:K24:5)
 			UnitTest_AssertEqualLongint(1; OK)
 			FileBuffer_Init($docRef)
@@ -80,11 +80,11 @@ Else
 			
 		: ($action="CSV Tests")
 			$fileContents:="test1,\"test2\""
-			$fileContents:=$fileContents+"\rdata1,\"da,ta2\""
-			$fileContents:=$fileContents+"\r"
-			$fileContents:=$fileContents+"\rdata3,\"da,\rta4\""
-			$fileContents:=$fileContents+"\rtest1,\"te\"\"s\"\"t2\""
-			TEXT TO DOCUMENT:C1237($filePath; $fileContents)
+			$fileContents:=$fileContents+"\r\ndata1,\"da,ta2\""
+			$fileContents:=$fileContents+"\r\n"
+			$fileContents:=$fileContents+"\r\ndata3,\"da,\r\nta4\""
+			$fileContents:=$fileContents+"\r\ntest1,\"te\"\"s\"\"t2\""
+			TEXT TO DOCUMENT:C1237($filePath; $fileContents; "utf-8"; Document unchanged:K24:18)
 			$docRef:=Open document:C264($filePath; ""; Read mode:K24:5)
 			UnitTest_AssertEqualLongint(1; OK)
 			FileBuffer_Init($docRef)
@@ -117,7 +117,7 @@ Else
 				; "line 4 length should be 2 rather than "+String:C10(Size of array:C274($array)))
 			If (Size of array:C274($array)>=2)
 				UnitTest_AssertEqualText("data3"; $array{1})
-				UnitTest_AssertEqualText("da,\rta4"; $array{2})
+				UnitTest_AssertEqualText("da,\r\nta4"; $array{2})
 			End if 
 			
 			FileBuffer_FetchCSVLine(FileBuffer_TellMeTheEOL; ->$array)
@@ -167,7 +167,7 @@ Else
 			$fileContents:=$fileContents+"\rte,st1;\"test2\""
 			$fileContents:=$fileContents+"\r"
 			$fileContents:=$fileContents+"\rdata1;\"da;ta2\""
-			TEXT TO DOCUMENT:C1237($filePath; $fileContents)
+			TEXT TO DOCUMENT:C1237($filePath; $fileContents; "utf-8"; Document unchanged:K24:18)
 			$docRef:=Open document:C264($filePath; ""; Read mode:K24:5)
 			UnitTest_AssertEqualLongint(1; OK)
 			FileBuffer_Init($docRef)

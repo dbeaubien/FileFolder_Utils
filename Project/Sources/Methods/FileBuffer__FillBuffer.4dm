@@ -69,10 +69,10 @@ If ($data_size_in_bytes>0)  // if there is room in the buffer
 				End if 
 			End if 
 			
-			gError:=""
-			ON ERR CALL:C155("Error_Blob_Text"; ek local:K92:1)
+			OnErr_Install_Handler("OnErr_GENERIC")
+			OnErr_ClearError()
 			$temporary_text:=Convert to text:C1012($blob; fileBuffer_charSet)
-			If (gError#"")
+			If (OnErr_GetLastError#0)
 				$temporary_text:=BLOB to text:C555($blob; UTF8 text without length:K22:17)
 			End if 
 			If ($temporary_text="") & (BLOB size:C605($blob)>0)
@@ -82,6 +82,7 @@ If ($data_size_in_bytes>0)  // if there is room in the buffer
 					$temporary_text:=BLOB to text:C555($blob; Mac text without length:K22:10)
 				End if 
 			End if 
+			OnErr_Install_Handler()
 	End case 
 	
 	fileBuffer_buffer:=fileBuffer_buffer+$temporary_text

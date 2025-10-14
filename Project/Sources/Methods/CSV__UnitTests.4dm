@@ -174,6 +174,7 @@ Else
 			UnitTest_AssertFalse(CSV_LineIsComplete("a,b,\"\"\"test,n"; ","))
 			UnitTest_AssertFalse(CSV_LineIsComplete("\"\"\""; ","))
 			UnitTest_AssertTrue(CSV_LineIsComplete("\"\"\"\""; ","))
+			UnitTest_AssertTrue(CSV_LineIsComplete("1020414591,Finley,Khoweyne,NyÃ„Ã´cole,2018-01-22,2"; ","))
 			
 		Else 
 			UnitTest_AssertTrue(False:C215; "missing test defintion for '"+$action+"'.")
