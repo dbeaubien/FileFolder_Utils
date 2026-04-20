@@ -13,9 +13,6 @@
 //
 #DECLARE($path_to_file : Text; $delimiter : Text)->$is_file_delimited : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (01/22/2021) - support any delimiter
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
 
 Case of 

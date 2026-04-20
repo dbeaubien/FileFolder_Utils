@@ -8,11 +8,8 @@
 //
 #DECLARE($ptr : Pointer)->$is_array : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (02/25/2020)
-// ----------------------------------------------------
-
 ASSERT:C1129(Count parameters:C259=1)
+
 If (Type:C295($ptr)#Is pointer:K8:14) || (Is nil pointer:C315($ptr))
 	return 
 End if 

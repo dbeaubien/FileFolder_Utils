@@ -11,31 +11,23 @@
 //   NOTE: If the finalFileSize is negative then it is
 //   an error code.
 //   
-C_TEXT:C284($1; $vt_filePathOnServer)
-C_BLOB:C604($2; $vx_data2Append)
-C_LONGINT:C283($0; $vl_error)
-// ----------------------------------------------------
-// HISTORY
-//   Created By: SB (09/25/2013)
+#DECLARE($vt_filePathOnServer : Text; $vx_data2Append : Blob)->$vl_error : Integer
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
-$vl_error:=0
-$vt_filePathOnServer:=$1
-$vx_data2Append:=$2
 
 OnErr_Install_Handler("OnErr_GENERIC")
 
 Folder_VerifyExistance(File_GetFolderName($vt_filePathOnServer))
 
 // Expand the blob if it is compressed
-C_LONGINT:C283($vl_isCompressed)
+var $vl_isCompressed : Integer
 BLOB PROPERTIES:C536($vx_data2Append; $vl_isCompressed)
 If ($vl_isCompressed=1)
 	EXPAND BLOB:C535($vx_data2Append)
 End if 
 
 // Open the file
-C_TIME:C306($fileRef)
+var $fileRef : Time
 If (File_DoesExist($vt_filePathOnServer))  // this will also ensure the folder exists
 	$fileRef:=Append document:C265($vt_filePathOnServer)
 Else 
@@ -51,5 +43,3 @@ End if
 
 $vl_error:=OnErr_GetLastError
 OnErr_Install_Handler
-
-$0:=$vl_error

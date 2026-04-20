@@ -16,7 +16,11 @@
 //   2000/02/28   DB   Created
 // ===============================================================
 #DECLARE($fileBuffer_DocRef : Time; $fileBuffer_MaxSize : Integer; $fileBuffer_charSet : Text)
+// ----------------------------------------------------
+
+var fileBuffer_MaxSize : Integer
 var fileBuffer_buffer; fileBuffer_charSet : Text
+var fileBuffer_DocRef : Time
 fileBuffer_DocRef:=$fileBuffer_DocRef
 
 // set the max size of the buffer

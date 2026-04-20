@@ -4,6 +4,7 @@
 // This method returns the specified number of bytes. If it cannot
 // then that means that the file is empty.
 #DECLARE($number_of_bytes_left : Integer)->$temporary_text : Text
+// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 
 var $no_more_data_to_read : Boolean

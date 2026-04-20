@@ -4,22 +4,15 @@
 // $1 = Expected
 // $2 = Actual
 // $3 = Failure message (optional)
+#DECLARE($expected : Text; $actual : Text; $message : Text)
+// ----------------------------------------------------
 
-C_TEXT:C284($1; $expected)
-C_TEXT:C284($2; $actual)
-C_TEXT:C284($3; $message)
-
-$expected:=$1
-$actual:=$2
-
-If (Count parameters:C259>=3)
-	$message:=$3
-Else 
+If (Count parameters:C259<3)
 	$message:="AssertEqualTextAndCase Expected \""+$expected+"\" but got \""+$actual+"\""
 End if 
 
-C_BOOLEAN:C305($vb_isGood)
-C_LONGINT:C283($i)
+var $vb_isGood : Boolean
+var $i : Integer
 If ($expected=$actual)
 	$vb_isGood:=True:C214  // assume is good
 	For ($i; 1; Length:C16($expected))

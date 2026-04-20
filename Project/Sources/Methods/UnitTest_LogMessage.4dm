@@ -1,9 +1,7 @@
 //%attributes = {"invisible":true,"preemptive":"incapable"}
 // (PM) UnitTest_LogMessage
 // Log any errors/messages from the unittests
+#DECLARE($message : Text)
+// ----------------------------------------------------
 
-C_TEXT:C284($1; $message)
-
-$message:=$1
-
-UnitTest_Log:=UnitTest_Log+$message+"\r"
+UnitTest_Log+=$message+"\r"

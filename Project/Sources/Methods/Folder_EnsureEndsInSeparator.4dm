@@ -6,21 +6,14 @@
 //   Ensures that the folder path ends in a folder separator.
 //   Empty strings are ignored.
 //
-C_TEXT:C284($1)
-C_TEXT:C284($0; $verifiedPath)
+#DECLARE($verifiedPath : Text) : Text
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (07/15/2017)
-// ----------------------------------------------------
+ASSERT:C1129(Count parameters:C259=1)
 
-$verifiedPath:=""
-If (Asserted:C1132(Count parameters:C259=1))
-	$verifiedPath:=$1
-	
-	If ($verifiedPath#"")
-		If ($verifiedPath[[Length:C16($verifiedPath)]]#Folder separator:K24:12)  // make sure the path ends in a folder
-			$verifiedPath:=$verifiedPath+Folder separator:K24:12
-		End if 
+If ($verifiedPath#"")
+	If ($verifiedPath[[Length:C16($verifiedPath)]]#Folder separator:K24:12)  // make sure the path ends in a folder
+		$verifiedPath+=Folder separator:K24:12
 	End if 
 End if 
-$0:=$verifiedPath
+
+return $verifiedPath

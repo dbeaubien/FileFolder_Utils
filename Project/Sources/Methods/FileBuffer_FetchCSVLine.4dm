@@ -7,6 +7,7 @@
 //   Recognizes a 1st line of "sep=" line.
 //
 #DECLARE($end_of_line : Text; $valuesArrayPtr : Pointer)
+// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
 
 var fileBuffer_csv_separator : Text  // defaulted to "," in FileBuffer_Init

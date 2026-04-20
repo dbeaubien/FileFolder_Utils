@@ -3,16 +3,8 @@
 // Keeps track of passed or failed assertions and logs any errors found
 // $1 = Condition
 // $2 = Failure message (optional)
-
-C_BOOLEAN:C305($1; $condition)
-C_TEXT:C284($2; $message)
-C_LONGINT:C283($index)
-
-$condition:=$1
-
-If (Count parameters:C259>=2)
-	$message:=$2
-End if 
+#DECLARE($condition : Boolean; $message : Text)
+var $index : Integer
 
 // Increment the total number of assertions
 $index:=Size of array:C274(UnitTest_StatsTotal)

@@ -4,14 +4,8 @@
 // DESCRIPTION
 //   Returns the larger of the two Longints
 //
-C_LONGINT:C283($1)
-C_LONGINT:C283($2)
-C_LONGINT:C283($0)
+#DECLARE($value_1 : Integer; $value_2 : Integer) : Integer
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
 
-If ($1>$2)
-	$0:=$1
-Else 
-	$0:=$2
-End if 
+return (($value_1>$value_2) ? $value_1 : $value_2)

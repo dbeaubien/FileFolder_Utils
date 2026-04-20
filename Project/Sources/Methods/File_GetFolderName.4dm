@@ -7,11 +7,9 @@
 //
 #DECLARE($document_platformPath : Text)->$folder_platformPath : Text
 // ----------------------------------------------------
-ASSERT:C1129(Count parameters:C259=1)
-ASSERT:C1129($document_platformPath#"")
+ASSERT:C1129((Count parameters:C259=1) && ($document_platformPath#""))
 
 var $path_parts : Collection
-//$path_parts:=[]
 $path_parts:=Split string:C1554($document_platformPath; Folder separator:K24:12)
 If ($path_parts.at(-1)="")
 	$folder_platformPath:=$path_parts.pop()  // just get rid of the last part since it is blank
@@ -24,5 +22,3 @@ If ($path_parts.length>1)
 Else 
 	$folder_platformPath:=""
 End if 
-
-//$folder_platformPath:=File($document_platformPath; fk platform path).parent.platformPath

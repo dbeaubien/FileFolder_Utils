@@ -2,11 +2,12 @@
 // (PM) UnitTest_RunTest
 // Runs a single test for the current testcase
 // $1 = Test name
+#DECLARE($testname : Text)
+// ----------------------------------------------------
 
-C_TEXT:C284($1; $testname; $testcase)
-C_LONGINT:C283($index; $start; $stop)
+var $index; $start; $stop : Integer
+var $testcase : Text
 
-$testname:=$1
 $testcase:=UnitTest_CurrentTestCase
 
 // Add the test to our statistics

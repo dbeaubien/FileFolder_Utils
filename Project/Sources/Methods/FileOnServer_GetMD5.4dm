@@ -5,17 +5,8 @@
 // DESCRIPTION
 //   Generates and returns the MD5 hash for the file.
 //   
-C_TEXT:C284($1; $vt_filePathOnServer)
-C_TEXT:C284($0; $vt_MD5hash)
+#DECLARE($file_path_on_server : Text)->$md5_hash_value : Text
 // ----------------------------------------------------
-// HISTORY
-//   Created By: SB (09/25/2013)
-// ----------------------------------------------------
+ASSERT:C1129(Count parameters:C259=1)
 
-$vt_MD5hash:=""
-If (Asserted:C1132(Count parameters:C259=1))
-	$vt_filePathOnServer:=$1
-	
-	$vt_MD5hash:=File_GetChecksum($vt_filePathOnServer; "md5")
-End if   // ASSERT
-$0:=$vt_MD5hash
+$md5_hash_value:=File_GetChecksum($file_path_on_server; "md5")

@@ -6,30 +6,13 @@
 //   Turns a boolean into a nice string.
 //   The trueValue/falseValue default to "true" / "false"
 //
-C_BOOLEAN:C305($1)
-C_TEXT:C284($2; $trueValue)
-C_TEXT:C284($3; $falseValue)
+#DECLARE($boolean_value : Boolean; $true_value : Text; $false_value : Text) : Text
 // ----------------------------------------------------
-// Created by: DB (04/12/04)
-//   Mod by: Dani Beaubien (05/24/2019) - param 2 & 3 are now optional
-// ----------------------------------------------------
+ASSERT:C1129((Count parameters:C259=1) || (Count parameters:C259=3))
 
-C_TEXT:C284($0)
-$0:=""
-
-If (Asserted:C1132((Count parameters:C259=1) | (Count parameters:C259=3)))
-	If (Count parameters:C259=3)
-		$trueValue:=$2
-		$falseValue:=$3
-	Else 
-		$trueValue:="true"
-		$falseValue:="false"
-	End if 
-	
-	If ($1)
-		$0:=$trueValue
-	Else 
-		$0:=$falseValue
-	End if 
-	
+If (Count parameters:C259<3)
+	$true_value:="true"
+	$false_value:="false"
 End if 
+
+return ($boolean_value) ? $true_value : $false_value

@@ -6,12 +6,12 @@ Case of
 		UnitTest_Init("all_soft")  // only init if it has not happened yet
 		
 		
-	: (Form event code:C388=On Data Change:K2:15) | (Form event code:C388=On Clicked:K2:4)
-		C_BOOLEAN:C305($isOneSelected)
-		C_LONGINT:C283($i)
+	: (Form event code:C388=On Data Change:K2:15) || (Form event code:C388=On Clicked:K2:4)
+		var $isOneSelected : Boolean
+		var $i : Integer
 		$isOneSelected:=False:C215
 		For ($i; 1; Size of array:C274(UnitTest_TestCaseEnabled))
-			$isOneSelected:=$isOneSelected | UnitTest_TestCaseEnabled{$i}
+			$isOneSelected:=$isOneSelected || UnitTest_TestCaseEnabled{$i}
 		End for 
 		OBJECT SET ENABLED:C1123(UnitTest_RunButton; $isOneSelected)
 		
