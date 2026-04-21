@@ -7,11 +7,8 @@
 //
 #DECLARE($csv_line_as_text : Text; $separator : Text)->$values : Collection
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (05/25/2020)
-// ----------------------------------------------------
 $values:=[]
-ASSERT:C1129((Count parameters:C259=1) | (Count parameters:C259=2))
+ASSERT:C1129((Count parameters:C259=1) || (Count parameters:C259=2))
 If ($separator="")
 	$separator:=","
 End if 

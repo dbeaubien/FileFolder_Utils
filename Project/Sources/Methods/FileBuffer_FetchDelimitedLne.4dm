@@ -8,10 +8,8 @@
 //
 #DECLARE($end_of_line : Text; $vp_valuesArrayPtr : Pointer; $delimiter : Text)
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (01/22/2021) - support any delimiter
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=3)
+
 Array_Empty($vp_valuesArrayPtr)
 
 var $next_line : Text

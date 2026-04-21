@@ -4,6 +4,7 @@
 // DESCRIPTION:
 //   Returns true if the folder exists
 #DECLARE($path_to_folder : Text)->$does_folder_exist : Boolean
+// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 
 If ($path_to_folder#"")

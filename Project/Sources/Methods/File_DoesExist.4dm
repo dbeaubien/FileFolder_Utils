@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
 // File_DoesExist (file_path) : does_file_exist
-// File_DoesExist (text) : boolean
 // 
 // DESCRIPTION:
 //   Returns true if the file exists. 

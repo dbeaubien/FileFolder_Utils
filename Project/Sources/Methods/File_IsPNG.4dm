@@ -8,9 +8,6 @@
 //
 #DECLARE($path_to_image : Text)->$is_file_png : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (09/11/2018)
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 
 If (File_DoesExist($path_to_image))

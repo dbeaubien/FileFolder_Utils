@@ -12,10 +12,6 @@
 //
 #DECLARE($path_to_file : Text)->$is_file_tab_delimited : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (03/25/2019)
-//   Mod by: Dani Beaubien (01/22/2021) - Simplied code
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 
 Case of 

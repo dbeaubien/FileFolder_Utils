@@ -8,18 +8,20 @@
 //
 #DECLARE($lineToCheck : Text; $separator : Text)->$isComplete : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (03/29/2021)
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
 $isComplete:=True:C214
 
 // Scan for values that are in quotes
 var $value : Text
 var $inQuotedValue : Boolean
+var $quote_position : Integer
 For each ($value; Split string:C1554($lineToCheck; $separator))
 	
-	If (Not:C34($inQuotedValue) & ($value="@\"@"))  // contains quotes
+	If (Not:C34($inQuotedValue) && ($value="@\"@"))  // contains quotes
+		$quote_position:=Position:C15("\""; $value)
+		If ($quote_position<0) || (Character code:C91($value[[$quote_position]])#Character code:C91("\""))
+			continue
+		End if 
 		If ($value="\"@")
 			$value:=Substring:C12($value; 2)  // trim opening quote
 		End if 

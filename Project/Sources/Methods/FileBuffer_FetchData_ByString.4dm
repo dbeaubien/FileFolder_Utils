@@ -9,10 +9,6 @@
 //
 #DECLARE($matchOnText : Text; $matchOnText2 : Text)->$tmpTxt : Text
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (03/05/2019)
-//   Mod by: Dani Beaubien (12/12/2019) - Task 6201 - Handle if the eol char is \r\n and is split across the buffer
-// ----------------------------------------------------
 var $pos; $pos2 : Integer
 
 ASSERT:C1129((Length:C16($matchOnText)>0); "String being passed to search for is empty.")
@@ -71,15 +67,14 @@ If (Not:C34($fileIsDone))
 		// Increment our current position in the file based on what is in the buffer
 		Case of 
 			: (fileBuffer_charSet="UTF-16@")
-				fileBuffer_curPos:=fileBuffer_curPos+Length:C16($tmpTxt*2)
+				fileBuffer_curPos+=Length:C16($tmpTxt*2)
 				
 			: (fileBuffer_charSet="UTF-32@")
-				fileBuffer_curPos:=fileBuffer_curPos+Length:C16($tmpTxt*4)
+				fileBuffer_curPos+=Length:C16($tmpTxt*4)
 				
 			Else 
-				var $vx_tmpBuffer : Blob
 				TEXT TO BLOB:C554($tmpTxt; $vx_tmpBuffer; UTF8 text without length:K22:17)
-				fileBuffer_curPos:=fileBuffer_curPos+BLOB size:C605($vx_tmpBuffer)
+				fileBuffer_curPos+=BLOB size:C605($vx_tmpBuffer)
 		End case 
 	End if 
 	

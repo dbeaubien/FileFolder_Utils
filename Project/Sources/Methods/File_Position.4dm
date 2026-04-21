@@ -9,27 +9,15 @@
 //   An offset can be provided to indicate where to start looking. 
 //   - Positive values 
 //
-C_TEXT:C284($1; $find)
-C_TIME:C306($2; $fileRef)
-C_LONGINT:C283($3; $offset)
-C_LONGINT:C283($0; $docPos)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (09/09/2017)
+#DECLARE($find : Text; $fileRef : Time; $offset : Integer)->$docPos : Integer
 // ----------------------------------------------------
 
 $docPos:=-1
-If (Asserted:C1132((Count parameters:C259=2) | (Count parameters:C259=3)))
-	$find:=$1
-	$fileRef:=$2
-	If (Count parameters:C259=3)
-		$offset:=$3
-	End if 
-	
-	C_LONGINT:C283($docSize)
+If (Asserted:C1132((Count parameters:C259=2) || (Count parameters:C259=3)))
+	var $docSize : Integer
 	SET DOCUMENT POSITION:C482($fileRef; 0; 2)  // In relation to the end of the file
 	$docSize:=Get document position:C481($fileRef)
-	If ($offset<0) & ($docSize<Abs:C99($offset))
+	If ($offset<0) && ($docSize<Abs:C99($offset))
 		$offset:=0-$docSize
 	End if 
 	
@@ -42,10 +30,10 @@ If (Asserted:C1132((Count parameters:C259=2) | (Count parameters:C259=3)))
 			SET DOCUMENT POSITION:C482($fileRef; 0; 1)
 	End case 
 	
-	C_TEXT:C284($buffer)
-	C_LONGINT:C283($count; $pos)
+	var $buffer : Text
+	var $count; $pos : Integer
 	$count:=0
-	While (Get document position:C481($fileRef)<$docSize) & ($docPos=-1)
+	While (Get document position:C481($fileRef)<$docSize) && ($docPos=-1)
 		RECEIVE PACKET:C104($fileRef; $buffer; 102400)
 		$pos:=Position:C15($find; $buffer)
 		If ($pos>0)
@@ -63,5 +51,4 @@ If (Asserted:C1132((Count parameters:C259=2) | (Count parameters:C259=3)))
 		End if 
 	End while 
 	
-End if   // ASSERT
-$0:=$docPos
+End if 

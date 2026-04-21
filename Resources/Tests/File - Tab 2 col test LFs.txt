@@ -1,0 +1,4 @@
+Column	Type	MaxLength	Required	ValidValues
+District ID	Integer		Y	
+School ID	Integer		Y	
+School Name	Alpha	60	Y	

@@ -5,7 +5,7 @@
 //   advancing the current position in the file.
 //
 #DECLARE($size_to_return : Integer)->$file_content : Text
-
+// ----------------------------------------------------
 If (Count parameters:C259=0) || ($size_to_return<0)
 	$size_to_return:=0
 End if 

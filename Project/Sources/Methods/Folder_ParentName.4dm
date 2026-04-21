@@ -4,6 +4,7 @@
 // DESCRIPTION
 //   Returns the parent folder of the folderPath passed in.
 #DECLARE($folder_path : Text)->$parent_folder_path : Text
+// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 
 If ($folder_path=("@"+Folder separator:K24:12))

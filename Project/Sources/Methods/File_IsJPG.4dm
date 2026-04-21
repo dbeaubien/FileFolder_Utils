@@ -7,9 +7,6 @@
 //   The file extension is ignored, it looks at the image directly.
 #DECLARE($path_to_image : Text)->$is_file_jpg : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (09/11/2018)
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 
 If (File_DoesExist($path_to_image))
