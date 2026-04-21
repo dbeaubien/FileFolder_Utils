@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="2">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="4">
 	<com.4d>
 		<compiler>
-			<options target="all"/>
+			<options compilation_path="3" syntax_file="true" target="all"/>
 			<typage default_for_button="2"/>
 		</compiler>
+		<database>
+			<misc mac_use_lf="false" no_bom="false" non_blocking_printing="false" prefer_null_than_blank_values="false" split_catalog="false" standard_xpath="true" win_form_text_directwrite="false"/>
+		</database>
 	</com.4d>
 </preferences>

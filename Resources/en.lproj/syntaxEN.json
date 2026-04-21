@@ -1,0 +1,1046 @@
+{
+	"_method_": {
+		"FileBuffer_GetFilePostion": {
+			"Syntax": "**FileBuffer_GetFilePostion**()->file_buffer_current_pos : Integer",
+			"Params": [
+				[
+					"file_buffer_current_pos",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"STR_ParseLineToCsvValues": {
+			"Syntax": "**STR_ParseLineToCsvValues**( *csv_line_as_text* : Text; *separator* : Text )->values : Collection",
+			"Params": [
+				[
+					"csv_line_as_text",
+					"Text",
+					"->"
+				],
+				[
+					"separator",
+					"Text",
+					"->"
+				],
+				[
+					"values",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_DeriveFileTypeFromName": {
+			"Syntax": "**File_DeriveFileTypeFromName**( *vt_fileName* : Text )->vt_FileType : Text",
+			"Params": [
+				[
+					"vt_fileName",
+					"Text",
+					"->"
+				],
+				[
+					"vt_FileType",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_EnsureEndsInSeparator": {
+			"Syntax": "**Folder_EnsureEndsInSeparator**( *verifiedPath* : Text ) : Text",
+			"Params": [
+				[
+					"verifiedPath",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_IsPNG": {
+			"Syntax": "**File_IsPNG**( *path_to_image* : Text )->is_file_png : Boolean",
+			"Params": [
+				[
+					"path_to_image",
+					"Text",
+					"->"
+				],
+				[
+					"is_file_png",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CSV_LineFromFieldCollection": {
+			"Syntax": "**CSV_LineFromFieldCollection**( *collection* : Collection; *eol* : Text )->csvLine : Text",
+			"Params": [
+				[
+					"collection",
+					"Collection",
+					"->"
+				],
+				[
+					"eol",
+					"Text",
+					"->"
+				],
+				[
+					"csvLine",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileOnServer_GetMD5": {
+			"Syntax": "**FileOnServer_GetMD5**( *file_path_on_server* : Text )->md5_hash_value : Text",
+			"Params": [
+				[
+					"file_path_on_server",
+					"Text",
+					"->"
+				],
+				[
+					"md5_hash_value",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_isOnMountedVolume": {
+			"Syntax": "**Folder_isOnMountedVolume**( *vt_thePath* : Text )->vb_volumeIsValid : Boolean",
+			"Params": [
+				[
+					"vt_thePath",
+					"Text",
+					"->"
+				],
+				[
+					"vb_volumeIsValid",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_FetchData_ByString": {
+			"Syntax": "**FileBuffer_FetchData_ByString**( *matchOnText* : Text; *matchOnText2* : Text )->tmpTxt : Text",
+			"Params": [
+				[
+					"matchOnText",
+					"Text",
+					"->"
+				],
+				[
+					"matchOnText2",
+					"Text",
+					"->"
+				],
+				[
+					"tmpTxt",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_VerifyExistance": {
+			"Syntax": "**Folder_VerifyExistance**( *path_to_folder* : Text )",
+			"Params": [
+				[
+					"path_to_folder",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_DeriveMimeTypeFromName": {
+			"Syntax": "**File_DeriveMimeTypeFromName**( *file_name* : Text )->mime_type : Text",
+			"Params": [
+				[
+					"file_name",
+					"Text",
+					"->"
+				],
+				[
+					"mime_type",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_DecompressIt": {
+			"Syntax": "**File_DecompressIt**( *src_zip_file_platformPath* : Text; *dst_file_platformPath* : Text )",
+			"Params": [
+				[
+					"src_zip_file_platformPath",
+					"Text",
+					"->"
+				],
+				[
+					"dst_file_platformPath",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_ParentName": {
+			"Syntax": "**Folder_ParentName**( *folder_path* : Text )->parent_folder_path : Text",
+			"Params": [
+				[
+					"folder_path",
+					"Text",
+					"->"
+				],
+				[
+					"parent_folder_path",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_EmptyContents": {
+			"Syntax": "**Folder_EmptyContents**( *vt_folderPath* : Text )",
+			"Params": [
+				[
+					"vt_folderPath",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"CSV_LineFromCollection": {
+			"Syntax": "**CSV_LineFromCollection**( *collection* : Collection; *eol* : Text )->csvLine : Text",
+			"Params": [
+				[
+					"collection",
+					"Collection",
+					"->"
+				],
+				[
+					"eol",
+					"Text",
+					"->"
+				],
+				[
+					"csvLine",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileOnServer_DoesExist": {
+			"Syntax": "**FileOnServer_DoesExist**( *vt_fullPathOnServer* : Text )->vb_doesExistOnServer : Boolean",
+			"Params": [
+				[
+					"vt_fullPathOnServer",
+					"Text",
+					"->"
+				],
+				[
+					"vb_doesExistOnServer",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_Position": {
+			"Syntax": "**File_Position**( *find* : Text; *fileRef* : Time; *offset* : Integer )->docPos : Integer",
+			"Params": [
+				[
+					"find",
+					"Text",
+					"->"
+				],
+				[
+					"fileRef",
+					"Time",
+					"->"
+				],
+				[
+					"offset",
+					"Integer",
+					"->"
+				],
+				[
+					"docPos",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_IsJPG": {
+			"Syntax": "**File_IsJPG**( *path_to_image* : Text )->is_file_jpg : Boolean",
+			"Params": [
+				[
+					"path_to_image",
+					"Text",
+					"->"
+				],
+				[
+					"is_file_jpg",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_DoesExist": {
+			"Syntax": "**File_DoesExist**( *file_path* : Text )->does_file_exist : Boolean",
+			"Params": [
+				[
+					"file_path",
+					"Text",
+					"->"
+				],
+				[
+					"does_file_exist",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_RemoveDotFileFromArray": {
+			"Syntax": "**Folder_RemoveDotFileFromArray**( *arrPtr* : Pointer )",
+			"Params": [
+				[
+					"arrPtr",
+					"Pointer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_GetFileName": {
+			"Syntax": "**File_GetFileName**( *filePath* : Text )->fileName : Text",
+			"Params": [
+				[
+					"filePath",
+					"Text",
+					"->"
+				],
+				[
+					"fileName",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileOnServer_GetDocSize": {
+			"Syntax": "**FileOnServer_GetDocSize**( *vt_fullPathOnServer* : Text )->vl_fileSize : Integer",
+			"Params": [
+				[
+					"vt_fullPathOnServer",
+					"Text",
+					"->"
+				],
+				[
+					"vl_fileSize",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_Delete": {
+			"Syntax": "**Folder_Delete**( *vt_folderPath* : Text )",
+			"Params": [
+				[
+					"vt_folderPath",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_VerifyItExists": {
+			"Syntax": "**Folder_VerifyItExists**( *path_to_folder* : Text )",
+			"Params": [
+				[
+					"path_to_folder",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_GetFolderName": {
+			"Syntax": "**File_GetFolderName**( *document_platformPath* : Text )->folder_platformPath : Text",
+			"Params": [
+				[
+					"document_platformPath",
+					"Text",
+					"->"
+				],
+				[
+					"folder_platformPath",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_FetchTabDelimitedLne": {
+			"Syntax": "**FileBuffer_FetchTabDelimitedLne**( *end_of_line* : Text; *vp_valuesArrayPtr* : Pointer )",
+			"Params": [
+				[
+					"end_of_line",
+					"Text",
+					"->"
+				],
+				[
+					"vp_valuesArrayPtr",
+					"Pointer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer__FillBuffer": {
+			"Syntax": "**FileBuffer__FillBuffer**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_FetchData_PeekAhead": {
+			"Syntax": "**FileBuffer_FetchData_PeekAhead**( *size_to_return* : Integer )->file_content : Text",
+			"Params": [
+				[
+					"size_to_return",
+					"Integer",
+					"->"
+				],
+				[
+					"file_content",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_ExportArrays2TabDelimited": {
+			"Syntax": "**File_ExportArrays2TabDelimited**( *vt_pathToFileToImport* : Text; *...* : Pointer )",
+			"Params": [
+				[
+					"vt_pathToFileToImport",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Pointer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_VerifyitExist": {
+			"Syntax": "**File_VerifyitExist**( *thePath* : Text )->isThere : Boolean",
+			"Params": [
+				[
+					"thePath",
+					"Text",
+					"->"
+				],
+				[
+					"isThere",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_IsTabDelimited": {
+			"Syntax": "**File_IsTabDelimited**( *path_to_file* : Text )->is_file_tab_delimited : Boolean",
+			"Params": [
+				[
+					"path_to_file",
+					"Text",
+					"->"
+				],
+				[
+					"is_file_tab_delimited",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_IsCSV": {
+			"Syntax": "**File_IsCSV**( *path_to_file* : Text )->is_file_csv : Boolean",
+			"Params": [
+				[
+					"path_to_file",
+					"Text",
+					"->"
+				],
+				[
+					"is_file_csv",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_TellMeTheEOL": {
+			"Syntax": "**FileBuffer_TellMeTheEOL**()->end_of_line : Text",
+			"Params": [
+				[
+					"end_of_line",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_DoesExist": {
+			"Syntax": "**Folder_DoesExist**( *path_to_folder* : Text )->does_folder_exist : Boolean",
+			"Params": [
+				[
+					"path_to_folder",
+					"Text",
+					"->"
+				],
+				[
+					"does_folder_exist",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_EOF": {
+			"Syntax": "**FileBuffer_EOF**()->is_end_of_file : Boolean",
+			"Params": [
+				[
+					"is_end_of_file",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_IsDelimited": {
+			"Syntax": "**File_IsDelimited**( *path_to_file* : Text; *delimiter* : Text )->is_file_delimited : Boolean",
+			"Params": [
+				[
+					"path_to_file",
+					"Text",
+					"->"
+				],
+				[
+					"delimiter",
+					"Text",
+					"->"
+				],
+				[
+					"is_file_delimited",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_CreateFile": {
+			"Syntax": "**File_CreateFile**( *vt_pathToCreateFileAt* : Text; *vt_FileType* : Text )->vh_docRef : Time",
+			"Params": [
+				[
+					"vt_pathToCreateFileAt",
+					"Text",
+					"->"
+				],
+				[
+					"vt_FileType",
+					"Text",
+					"->"
+				],
+				[
+					"vh_docRef",
+					"Time",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CSV_LineIsComplete": {
+			"Syntax": "**CSV_LineIsComplete**( *lineToCheck* : Text; *separator* : Text )->isComplete : Boolean",
+			"Params": [
+				[
+					"lineToCheck",
+					"Text",
+					"->"
+				],
+				[
+					"separator",
+					"Text",
+					"->"
+				],
+				[
+					"isComplete",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_Init": {
+			"Syntax": "**FileBuffer_Init**( *fileBuffer_DocRef* : Time; *fileBuffer_MaxSize* : Integer; *fileBuffer_charSet* : Text )",
+			"Params": [
+				[
+					"fileBuffer_DocRef",
+					"Time",
+					"->"
+				],
+				[
+					"fileBuffer_MaxSize",
+					"Integer",
+					"->"
+				],
+				[
+					"fileBuffer_charSet",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_FetchDelimitedLne": {
+			"Syntax": "**FileBuffer_FetchDelimitedLne**( *end_of_line* : Text; *vp_valuesArrayPtr* : Pointer; *delimiter* : Text )",
+			"Params": [
+				[
+					"end_of_line",
+					"Text",
+					"->"
+				],
+				[
+					"vp_valuesArrayPtr",
+					"Pointer",
+					"->"
+				],
+				[
+					"delimiter",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_WaitUntilDoesExist": {
+			"Syntax": "**File_WaitUntilDoesExist**( *documentFullPath* : Text; *vl_maxSecondsToWait* : Integer )->vb_doesExist : Boolean",
+			"Params": [
+				[
+					"documentFullPath",
+					"Text",
+					"->"
+				],
+				[
+					"vl_maxSecondsToWait",
+					"Integer",
+					"->"
+				],
+				[
+					"vb_doesExist",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_FetchData_BySize": {
+			"Syntax": "**FileBuffer_FetchData_BySize**( *number_of_bytes_left* : Integer )->temporary_text : Text",
+			"Params": [
+				[
+					"number_of_bytes_left",
+					"Integer",
+					"->"
+				],
+				[
+					"temporary_text",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_RemoveOlderContents": {
+			"Syntax": "**Folder_RemoveOlderContents**( *vt_folderPath* : Text; *vl_numMinutes* : Integer )",
+			"Params": [
+				[
+					"vt_folderPath",
+					"Text",
+					"->"
+				],
+				[
+					"vl_numMinutes",
+					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_Delete": {
+			"Syntax": "**File_Delete**( *file_platformPath* : Text )",
+			"Params": [
+				[
+					"file_platformPath",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_GenerateUniqueName": {
+			"Syntax": "**File_GenerateUniqueName**()->uniqueFileName : Text",
+			"Params": [
+				[
+					"uniqueFileName",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_CompressIt": {
+			"Syntax": "**Folder_CompressIt**( *src_folder_platformPath* : Text; *dest_zip_file_platformPath* : Text; *do_delete_src_folder* : Boolean )",
+			"Params": [
+				[
+					"src_folder_platformPath",
+					"Text",
+					"->"
+				],
+				[
+					"dest_zip_file_platformPath",
+					"Text",
+					"->"
+				],
+				[
+					"do_delete_src_folder",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_WaitUntilFixedSize": {
+			"Syntax": "**File_WaitUntilFixedSize**( *documentFullPath* : Text; *vl_maxSecondsToWait* : Integer; *vl_ticksToPauseBetweenChecks* : Integer )->vb_doesExistFixedSize : Boolean",
+			"Params": [
+				[
+					"documentFullPath",
+					"Text",
+					"->"
+				],
+				[
+					"vl_maxSecondsToWait",
+					"Integer",
+					"->"
+				],
+				[
+					"vl_ticksToPauseBetweenChecks",
+					"Integer",
+					"->"
+				],
+				[
+					"vb_doesExistFixedSize",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_GetChecksum": {
+			"Syntax": "**File_GetChecksum**( *vt_filePath* : Text; *vt_hash_algorithm* : Text )->checksum_out_t : Text",
+			"Params": [
+				[
+					"vt_filePath",
+					"Text",
+					"->"
+				],
+				[
+					"vt_hash_algorithm",
+					"Text",
+					"->"
+				],
+				[
+					"checksum_out_t",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_ExportTableSelection2CSV": {
+			"Syntax": "**File_ExportTableSelection2CSV**( *tablePtr* : Pointer; *fieldPtrsToSkip* : Collection; *exportToFilePath* : Text )->exportResults : Object",
+			"Params": [
+				[
+					"tablePtr",
+					"Pointer",
+					"->"
+				],
+				[
+					"fieldPtrsToSkip",
+					"Collection",
+					"->"
+				],
+				[
+					"exportToFilePath",
+					"Text",
+					"->"
+				],
+				[
+					"exportResults",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_Import2Collection": {
+			"Syntax": "**File_Import2Collection**( *importObj* : Object )->importedRowCollection : Collection",
+			"Params": [
+				[
+					"importObj",
+					"Object",
+					"->"
+				],
+				[
+					"importedRowCollection",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_CopyTo4DServer": {
+			"Syntax": "**File_CopyTo4DServer**( *vt_localFilePath* : Text; *vt_filePathOnServer* : Text )->vl_error : Integer",
+			"Params": [
+				[
+					"vt_localFilePath",
+					"Text",
+					"->"
+				],
+				[
+					"vt_filePathOnServer",
+					"Text",
+					"->"
+				],
+				[
+					"vl_error",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_GetTailAsText": {
+			"Syntax": "**File_GetTailAsText**( *vt_filePath* : Text; *vl_numChars* : Integer )->vt_tailOfFile : Text",
+			"Params": [
+				[
+					"vt_filePath",
+					"Text",
+					"->"
+				],
+				[
+					"vl_numChars",
+					"Integer",
+					"->"
+				],
+				[
+					"vt_tailOfFile",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"FileOnServer_AppendData": {
+			"Syntax": "**FileOnServer_AppendData**( *vt_filePathOnServer* : Text; *vx_data2Append* : Blob )->vl_error : Integer",
+			"Params": [
+				[
+					"vt_filePathOnServer",
+					"Text",
+					"->"
+				],
+				[
+					"vx_data2Append",
+					"Blob",
+					"->"
+				],
+				[
+					"vl_error",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_DownloadFromURL": {
+			"Syntax": "**File_DownloadFromURL**( *url* : Text; *destFilePath* : Text )",
+			"Params": [
+				[
+					"url",
+					"Text",
+					"->"
+				],
+				[
+					"destFilePath",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"FileBuffer_FetchCSVLine": {
+			"Syntax": "**FileBuffer_FetchCSVLine**( *end_of_line* : Text; *valuesArrayPtr* : Pointer )",
+			"Params": [
+				[
+					"end_of_line",
+					"Text",
+					"->"
+				],
+				[
+					"valuesArrayPtr",
+					"Pointer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"FileOnServer_Delete": {
+			"Syntax": "**FileOnServer_Delete**( *vt_filePathOnServer* : Text )",
+			"Params": [
+				[
+					"vt_filePathOnServer",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_GetHeadersFromFirstRow": {
+			"Syntax": "**File_GetHeadersFromFirstRow**( *filePath* : Text; *headerLabelsArrPtr* : Pointer )",
+			"Params": [
+				[
+					"filePath",
+					"Text",
+					"->"
+				],
+				[
+					"headerLabelsArrPtr",
+					"Pointer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_ImportTabDelimited2Arrays": {
+			"Syntax": "**File_ImportTabDelimited2Arrays**( *import_file_platformPath* : Text; *...* : Pointer )",
+			"Params": [
+				[
+					"import_file_platformPath",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Pointer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_GetExtension": {
+			"Syntax": "**File_GetExtension**( *path* : Text ) : Text",
+			"Params": [
+				[
+					"path",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Folder_CopyFolderMoveFiles": {
+			"Syntax": "**Folder_CopyFolderMoveFiles**( *vt_srcFolderPath* : Text; *vt_dstFolderPath* : Text )->vl_numFilesMoved : Integer",
+			"Params": [
+				[
+					"vt_srcFolderPath",
+					"Text",
+					"->"
+				],
+				[
+					"vt_dstFolderPath",
+					"Text",
+					"->"
+				],
+				[
+					"vl_numFilesMoved",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"File_CompressIt": {
+			"Syntax": "**File_CompressIt**( *src_file_platformPath* : Text; *dest_zip_file_platformPath* : Text )",
+			"Params": [
+				[
+					"src_file_platformPath",
+					"Text",
+					"->"
+				],
+				[
+					"dest_zip_file_platformPath",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"File_ExportArrays2CSV": {
+			"Syntax": "**File_ExportArrays2CSV**( *vt_pathToFile* : Text; *...* : Pointer )",
+			"Params": [
+				[
+					"vt_pathToFile",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Pointer",
+					"->"
+				]
+			],
+			"Summary": ""
+		}
+	}
+}
