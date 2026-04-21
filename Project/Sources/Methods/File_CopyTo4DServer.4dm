@@ -6,35 +6,26 @@
 //   Copies the file from the local file system to the
 //   specified 4D path on the 4D Server.
 //   
-C_TEXT:C284($1; $vt_localFilePath)
-C_TEXT:C284($2; $vt_filePathOnServer)
-C_LONGINT:C283($0; $vl_error)
-// ----------------------------------------------------
-// HISTORY
-//   Created By: SB (09/26/2013)
+#DECLARE($vt_localFilePath : Text; $vt_filePathOnServer : Text)->$vl_error : Integer
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
 
-$vl_error:=0
-$vt_localFilePath:=$1
-$vt_filePathOnServer:=$2
-
 FileOnServer_Delete($vt_filePathOnServer)
 
-C_TEXT:C284($vt_MD5_LocalFile)
+var $vt_MD5_LocalFile : Text
 $vt_MD5_LocalFile:=File_GetChecksum($vt_localFilePath; "md5")
 
-C_LONGINT:C283($vl_SourceFileSize)
+var $vl_SourceFileSize : Integer
 $vl_SourceFileSize:=Get document size:C479($vt_localFilePath)
 
-C_TIME:C306($fileRef)
+var $fileRef : Time
 $fileRef:=Open document:C264($vt_localFilePath; ""; Read mode:K24:5)
 If (OK=1)
 	
-	C_LONGINT:C283($vl_count; $vl_NumBytesCopied; $vl_err)
-	C_TEXT:C284($vt_DestFile_MD5)
-	C_BLOB:C604($vx_fileBuffer)
-	C_BOOLEAN:C305($vb_fileCopied)
+	var $vl_count; $vl_NumBytesCopied; $vl_err : Integer
+	var $vt_DestFile_MD5 : Text
+	var $vx_fileBuffer : Blob
+	var $vb_fileCopied : Boolean
 	$vb_fileCopied:=False:C215
 	$vl_count:=0
 	$vl_NumBytesCopied:=0
@@ -69,5 +60,3 @@ Else
 		$vl_error:=-1
 	End if 
 End if 
-
-$0:=$vl_error

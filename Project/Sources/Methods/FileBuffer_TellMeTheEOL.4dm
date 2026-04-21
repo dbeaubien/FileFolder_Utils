@@ -6,9 +6,6 @@
 //
 #DECLARE()->$end_of_line : Text
 // ----------------------------------------------------
-// HISTORY
-//   Created by: DB (08/20/10)
-// ----------------------------------------------------
 
 FileBuffer__FillBuffer  // top off the buffer
 $end_of_line:=STR_TellMeTheEOL(fileBuffer_buffer)

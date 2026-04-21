@@ -8,18 +8,18 @@ If (ok=0)
 	return 
 End if 
 
-$validateFilePath:=$select_document{1}
-$validateFileFormat:="csv"
-C_TIME:C306($fileRef)
+var $validateFilePath : Text:=$select_document{1}
+var $validateFileFormat : Text:="csv"
+var $fileRef : Time
 $fileRef:=Open document:C264($validateFilePath; Read mode:K24:5)  // Task 4527
 If (OK=1)
 	FileBuffer_Init($fileRef)
 	
-	C_TEXT:C284($eol)
+	var $eol : Text
 	$eol:=FileBuffer_TellMeTheEOL
 	
 	ARRAY TEXT:C222($rawLineElementsArr; 0)
-	C_COLLECTION:C1488($rawLineCollection; $validateFileLines2ValidateList)
+	var $rawLineCollection; $validateFileLines2ValidateList : Collection
 	$validateFileLines2ValidateList:=[]
 	While (Not:C34(FileBuffer_EOF))
 		
@@ -33,7 +33,7 @@ If (OK=1)
 			FileBuffer_FetchDelimitedLne($eol; ->$rawLineElementsArr; "|")
 		End if 
 		
-		$rawLineCollection:=New collection:C1472
+		$rawLineCollection:=[]
 		ARRAY TO COLLECTION:C1563($rawLineCollection; $rawLineElementsArr)
 		$validateFileLines2ValidateList.push($rawLineCollection)
 		

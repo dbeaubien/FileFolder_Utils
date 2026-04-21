@@ -5,18 +5,14 @@
 //   Returns true if the path is on a volume that is
 //   currently mounted.
 //
-C_TEXT:C284($1; $vt_thePath)
-C_BOOLEAN:C305($0; $vb_volumeIsValid)
+#DECLARE($vt_thePath : Text)->$vb_volumeIsValid : Boolean
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-
-$vb_volumeIsValid:=False:C215
-$vt_thePath:=$1
 
 ARRAY TEXT:C222($at_volumes; 0)
 VOLUME LIST:C471($at_volumes)
 
-C_LONGINT:C283($i)
+var $i : Integer
 For ($i; 1; Size of array:C274($at_volumes))
 	If (Is Windows:C1573)
 		If ($vt_thePath=($at_volumes{$i}+"@"))
@@ -28,5 +24,3 @@ For ($i; 1; Size of array:C274($at_volumes))
 		End if 
 	End if 
 End for 
-
-$0:=$vb_volumeIsValid

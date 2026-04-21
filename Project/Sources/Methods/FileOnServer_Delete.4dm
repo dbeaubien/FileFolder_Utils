@@ -5,13 +5,8 @@
 // DESCRIPTION
 //   Deletes the specified document on the 4D Server.
 //
-C_TEXT:C284($1; $vt_filePathOnServer)
+#DECLARE($vt_filePathOnServer : Text)
 // ----------------------------------------------------
-// HISTORY
-//   Created By: SB (09/26/2013)
-// ----------------------------------------------------
-
-$vt_filePathOnServer:=$1
 
 Folder_VerifyExistance(Folder_ParentName($vt_filePathOnServer))
 

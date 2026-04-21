@@ -2,11 +2,11 @@
 //(PM) UnitTest__Stopwatch
 // Controls the stopwatch functions for the unit tests
 // $1 = Action
+//
+#DECLARE($action : Text)
+// ----------------------------------------------------
 
-C_TEXT:C284($1; $action)
-C_LONGINT:C283($totalDuration; $index)
-
-$action:=$1
+var $totalDuration; $index : Integer
 
 Case of 
 		
@@ -24,9 +24,9 @@ Case of
 		// Count the totals
 		For ($index; 1; Size of array:C274(UnitTest_StatsTestCase))
 			$totalDuration:=$totalDuration+UnitTest_StatsDuration{$index}
-			UnitTest_TotalTests:=UnitTest_TotalTests+UnitTest_StatsTotal{$index}
-			UnitTest_TotalPassed:=UnitTest_TotalPassed+UnitTest_StatsPassed{$index}
-			UnitTest_TotalFailed:=UnitTest_TotalFailed+UnitTest_StatsFailed{$index}
+			UnitTest_TotalTests+=UnitTest_StatsTotal{$index}
+			UnitTest_TotalPassed+=UnitTest_StatsPassed{$index}
+			UnitTest_TotalFailed+=UnitTest_StatsFailed{$index}
 		End for 
 		
 		// Count the relative duration (excluding the overhead of the unittests framework)

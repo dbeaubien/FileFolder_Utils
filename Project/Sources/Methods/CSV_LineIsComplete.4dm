@@ -17,7 +17,7 @@ var $inQuotedValue : Boolean
 var $quote_position : Integer
 For each ($value; Split string:C1554($lineToCheck; $separator))
 	
-	If (Not:C34($inQuotedValue) & ($value="@\"@"))  // contains quotes
+	If (Not:C34($inQuotedValue) && ($value="@\"@"))  // contains quotes
 		$quote_position:=Position:C15("\""; $value)
 		If ($quote_position<0) || (Character code:C91($value[[$quote_position]])#Character code:C91("\""))
 			continue

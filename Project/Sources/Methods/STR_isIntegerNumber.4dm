@@ -4,20 +4,17 @@
 // DESCRIPTION
 //   Returns true is the string passed is an integer.
 //
-C_TEXT:C284($1; $vt_srcText)
-C_BOOLEAN:C305($0; $vb_isFormattedCorrectly)
+#DECLARE($vt_srcText : Text)->$vb_isFormattedCorrectly : Boolean
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$vb_isFormattedCorrectly:=False:C215
-$vt_srcText:=$1
 
-C_LONGINT:C283($i)
-C_TEXT:C284($vt_curChar)
+var $i : Integer
+var $vt_curChar : Text
 $vb_isFormattedCorrectly:=True:C214  // assume all is good
 For ($i; 1; Length:C16($vt_srcText))
 	$vt_curChar:=$vt_srcText[[$i]]
 	Case of 
-		: ($vt_curChar="-") & ($i=1)  // ignore these
+		: ($vt_curChar="-") && ($i=1)  // ignore these
 		: ($vt_curChar=",")  // ignore these
 		: ($vt_curChar="0")
 		: ($vt_curChar="1")
@@ -31,8 +28,6 @@ For ($i; 1; Length:C16($vt_srcText))
 		: ($vt_curChar="9")
 		Else 
 			$vb_isFormattedCorrectly:=False:C215
-			$i:=1000000  // break our loop
+			break
 	End case 
 End for 
-
-$0:=$vb_isFormattedCorrectly

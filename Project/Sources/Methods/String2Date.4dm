@@ -6,13 +6,7 @@
 //
 #DECLARE($vt_dateStr : Text; $vt_dateFormat : Text)->$vd_theDate : Date
 // ----------------------------------------------------
-// HISTORY
-//   Created by: DB (12/31/05)
-//   Mod: DB (12/13/2011) - Support "MON"
-//   Mod: DB (01/24/2014) - Totally rewritten to support single digit numbers. Support 1/2/3 as a valid date.
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
-$vd_theDate:=!00-00-00!
 
 ARRAY LONGINT:C221($al_extractedNos; 3)
 ARRAY TEXT:C222($at_formatType; 0)
@@ -20,21 +14,20 @@ ARRAY LONGINT:C221($al_formatPos; 0)
 ARRAY LONGINT:C221($al_formatLen; 0)
 
 // Get the position in the format string of the year
-C_LONGINT:C283($vl_yearPos; $vl_yearLen)
-C_TEXT:C284($vt_yearFormatStr)
-If (True:C214)
-	$vl_yearPos:=Position:C15("yyyy"; $vt_dateFormat)
-	$vl_yearLen:=4
-	$vt_yearFormatStr:="yyyy"
+var $vl_yearPos; $vl_yearLen : Integer
+var $vt_yearFormatStr : Text
+
+$vl_yearPos:=Position:C15("yyyy"; $vt_dateFormat)
+$vl_yearLen:=4
+$vt_yearFormatStr:="yyyy"
+If ($vl_yearPos<=0)
+	$vl_yearPos:=Position:C15("yy"; $vt_dateFormat)
+	$vl_yearLen:=2
+	$vt_yearFormatStr:="yy"
 	If ($vl_yearPos<=0)
-		$vl_yearPos:=Position:C15("yy"; $vt_dateFormat)
-		$vl_yearLen:=2
-		$vt_yearFormatStr:="yy"
-		If ($vl_yearPos<=0)
-			$vl_yearPos:=-1
-			$vl_yearLen:=0
-			$vt_yearFormatStr:=""
-		End if 
+		$vl_yearPos:=-1
+		$vl_yearLen:=0
+		$vt_yearFormatStr:=""
 	End if 
 End if 
 APPEND TO ARRAY:C911($at_formatType; "y")  // represents year (temp)
@@ -43,21 +36,20 @@ APPEND TO ARRAY:C911($al_formatLen; $vl_yearLen)
 
 
 // Get the position in the format string of the month
-C_LONGINT:C283($vl_monthPos; $vl_monthLen)
-C_TEXT:C284($vt_monthFormatStr)
-If (True:C214)
-	$vl_monthPos:=Position:C15("mm"; $vt_dateFormat)
-	$vl_monthLen:=2
-	$vt_monthFormatStr:="mm"
+var $vl_monthPos; $vl_monthLen : Integer
+var $vt_monthFormatStr : Text
+
+$vl_monthPos:=Position:C15("mm"; $vt_dateFormat)
+$vl_monthLen:=2
+$vt_monthFormatStr:="mm"
+If ($vl_monthPos<=0)
+	$vl_monthPos:=Position:C15("mon"; $vt_dateFormat)
+	$vl_monthLen:=3
+	$vt_monthFormatStr:="mon"
 	If ($vl_monthPos<=0)
-		$vl_monthPos:=Position:C15("mon"; $vt_dateFormat)
-		$vl_monthLen:=3
-		$vt_monthFormatStr:="mon"
-		If ($vl_monthPos<=0)
-			$vl_monthPos:=-1
-			$vl_monthLen:=0
-			$vt_monthFormatStr:=""
-		End if 
+		$vl_monthPos:=-1
+		$vl_monthLen:=0
+		$vt_monthFormatStr:=""
 	End if 
 End if 
 APPEND TO ARRAY:C911($at_formatType; "m")  // represents month (temp)
@@ -79,33 +71,31 @@ If ($vt_monthFormatStr="mon")
 End if 
 
 // Get the position in the format string of the month
-C_LONGINT:C283($vl_dayPos; $vl_dayLen)
-C_TEXT:C284($vt_dayFormatStr)
-If (True:C214)
-	$vl_dayPos:=Position:C15("dd"; $vt_dateFormat)
-	$vl_dayLen:=2
-	$vt_dayFormatStr:="dd"
-	If ($vl_dayPos<=0)
-		$vl_dayPos:=-1
-		$vl_dayLen:=0
-		$vt_dayFormatStr:=""
-	End if 
+var $vl_dayPos; $vl_dayLen : Integer
+var $vt_dayFormatStr : Text
+
+$vl_dayPos:=Position:C15("dd"; $vt_dateFormat)
+$vl_dayLen:=2
+$vt_dayFormatStr:="dd"
+If ($vl_dayPos<=0)
+	$vl_dayPos:=-1
+	$vl_dayLen:=0
+	$vt_dayFormatStr:=""
 End if 
 APPEND TO ARRAY:C911($at_formatType; "d")  // represents day (temp)
 APPEND TO ARRAY:C911($al_formatPos; $vl_dayPos)
 APPEND TO ARRAY:C911($al_formatLen; $vl_dayLen)
 
 
-C_LONGINT:C283($vl_YearArrayElement)
-C_LONGINT:C283($vl_MonthArrayElement)
-C_LONGINT:C283($vl_DayArrayElement)
+var $vl_YearArrayElement : Integer
+var $vl_MonthArrayElement : Integer
+var $vl_DayArrayElement : Integer
 SORT ARRAY:C229($al_formatPos; $al_formatLen; $at_formatType; >)
 $vl_YearArrayElement:=Find in array:C230($at_formatType; "y")
 $vl_MonthArrayElement:=Find in array:C230($at_formatType; "m")
 $vl_DayArrayElement:=Find in array:C230($at_formatType; "d")
 
-
-C_LONGINT:C283($i; $vl_offset)
+var $i; $vl_offset : Integer
 $vl_offset:=0
 For ($i; 1; 3)
 	
@@ -122,12 +112,12 @@ For ($i; 1; 3)
 	Else 
 		
 		
-		C_TEXT:C284($vt_tmpStr; $vt_tmpStr2)
-		C_LONGINT:C283($vl_month)
+		var $vt_tmpStr; $vt_tmpStr2 : Text
+		var $vl_month : Integer
 		$vt_tmpStr:=Substring:C12($vt_dateStr; $al_formatPos{$i}+$vl_offset)
 		If ($al_formatLen{$i}<Length:C16($vt_tmpStr))
 			$vt_tmpStr2:=Substring:C12($vt_tmpStr; 1; $al_formatLen{$i})
-			If ($i=$vl_MonthArrayElement) & ($vt_monthFormatStr="mon")  // Month is the only variant
+			If ($i=$vl_MonthArrayElement) && ($vt_monthFormatStr="mon")  // Month is the only variant
 				Case of 
 					: ($vt_tmpStr2="Jan")
 						$vl_month:=1
@@ -182,7 +172,7 @@ For ($i; 1; 3)
 	
 End for 
 
-C_LONGINT:C283($vl_year; $vl_day)
+var $vl_year; $vl_day : Integer
 $vl_year:=$al_extractedNos{$vl_YearArrayElement}
 If ($vl_year<100)  // did we get a 2 digit year?
 	$vl_year:=$vl_year+2000
@@ -193,4 +183,3 @@ $vl_day:=$al_extractedNos{$vl_DayArrayElement}
 
 // Convert to a date
 $vd_theDate:=Add to date:C393(!00-00-00!; $vl_year; $vl_month; $vl_day)
-//$vd_theDate:=Date(String($vl_month)+"/"+String($vl_day)+"/"+String($vl_year))

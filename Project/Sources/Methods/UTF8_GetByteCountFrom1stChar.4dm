@@ -15,9 +15,6 @@
 //
 #DECLARE($char_bytes : Integer)->$num_bytes : Integer
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (09/19/2019)
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 
 var $bit_8; $bit_7; $bit_6; $bit_5; $bit_4 : Boolean
@@ -31,13 +28,13 @@ Case of
 	: (Not:C34($bit_8))
 		$num_bytes:=1
 		
-	: ($bit_8 & $bit_7 & Not:C34($bit_6))  // 110xxxxx means our character is encoded into 2 bytes
+	: ($bit_8 && $bit_7 && Not:C34($bit_6))  // 110xxxxx means our character is encoded into 2 bytes
 		$num_bytes:=2
 		
-	: ($bit_8 & $bit_7 & $bit_6 & Not:C34($bit_5))  // 1110xxxx means our character is encoded into 3 bytes
+	: ($bit_8 && $bit_7 && $bit_6 && Not:C34($bit_5))  // 1110xxxx means our character is encoded into 3 bytes
 		$num_bytes:=3
 		
-	: ($bit_8 & $bit_7 & $bit_7 & $bit_5 & Not:C34($bit_4))  // 11110xxx means our character is encoded into 4 bytes
+	: ($bit_8 && $bit_7 && $bit_7 && $bit_5 && Not:C34($bit_4))  // 11110xxx means our character is encoded into 4 bytes
 		$num_bytes:=4
 		
 	Else 

@@ -13,9 +13,6 @@
 //
 #DECLARE($path_to_file : Text)->$is_file_csv : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (03/25/2019)
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 
 Case of 

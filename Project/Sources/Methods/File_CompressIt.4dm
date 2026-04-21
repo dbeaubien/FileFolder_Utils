@@ -18,9 +18,3 @@ End if
 
 var $status : Object
 $status:=ZIP Create archive:C1640($src_file; $destination_file)
-
-If (Not:C34($status.success))
-	//LogEvent_Write("==> FAILED ("+Date2String(CurrentDate; "yyyy/mm/dd ")+Time2String(CurrentTime; "24hh:mm:ss")+"): "+$status.statusText; Current method name)
-	//LogEvent_Write("Source file: "+$src_file_platformPath; Current method name)
-	//LogEvent_Write("Destination zip file: "+$dest_zip_file_platformPath; Current method name)
-End if 

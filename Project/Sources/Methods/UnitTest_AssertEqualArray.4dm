@@ -4,19 +4,10 @@
 // $1 = Pointer to expected array
 // $2 = Pointer to actual array
 // $3 = Failure message (optional)
-
-C_POINTER:C301($1; $expected)
-C_POINTER:C301($2; $actual)
-C_TEXT:C284($3; $message)
-C_BOOLEAN:C305($equal)
-C_LONGINT:C283($index)
-
-$expected:=$1
-$actual:=$2
-
-If (Count parameters:C259>=3)
-	$message:=$3
-End if 
+#DECLARE($expected : Pointer; $actual : Pointer; $message : Text)
+// ----------------------------------------------------
+var $equal : Boolean
+var $index : Integer
 
 $equal:=True:C214
 Case of 

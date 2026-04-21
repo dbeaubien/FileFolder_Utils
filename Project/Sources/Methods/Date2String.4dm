@@ -30,7 +30,7 @@
 //   2000/03/21   DB   Modified to include the new header formating
 // ===============================================================
 //#Start method
-ASSERT:C1129((Count parameters:C259=1) | (Count parameters:C259=2))
+ASSERT:C1129((Count parameters:C259=1) || (Count parameters:C259=2))
 If ($date_format="")
 	$date_format:="mm/dd/yyyy"
 End if 

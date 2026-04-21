@@ -6,5 +6,5 @@
 // ----------------------------------------------------
 
 ARRAY TEXT:C222(gErrorTextArr; 0)
-C_LONGINT:C283(gError)
+var gError : Integer
 gError:=0

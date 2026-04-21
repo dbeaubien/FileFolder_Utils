@@ -5,16 +5,8 @@
 // DESCRIPTION:
 //   Returns the size of the file on the 4D Server.
 //
-C_TEXT:C284($1; $vt_fullPathOnServer)  // Path to file
-C_LONGINT:C283($0; $vl_fileSize)  // File size
-// ----------------------------------------------------
-// MODIFICATION HISTORY:
-//   Added: DB (7/17/03 @ 15:46:39)
+#DECLARE($vt_fullPathOnServer : Text)->$vl_fileSize : Integer
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$vl_fileSize:=0
-$vt_fullPathOnServer:=$1
 
 $vl_fileSize:=Get document size:C479($vt_fullPathOnServer)
-
-$0:=$vl_fileSize
