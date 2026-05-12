@@ -1,1 +1,16 @@
 //%attributes = {"invisible":true}
+
+ARRAY TEXT:C222(gErrorTextArr; 0)
+ARRAY BOOLEAN:C223(UnitTest_ListBoxStats; 0)
+ARRAY BOOLEAN:C223(UnitTest_ListBoxTestCases; 0)
+ARRAY LONGINT:C221(UnitTest_StatsDuration; 0)
+ARRAY LONGINT:C221(UnitTest_StatsFailed; 0)
+ARRAY LONGINT:C221(UnitTest_StatsPassed; 0)
+ARRAY REAL:C219(UnitTest_StatsPercentage; 0)
+ARRAY TEXT:C222(UnitTest_StatsTestCase; 0)
+ARRAY TEXT:C222(UnitTest_StatsTestName; 0)
+ARRAY LONGINT:C221(UnitTest_StatsTotal; 0)
+ARRAY TEXT:C222(UnitTest_TabControl; 0)
+ARRAY BOOLEAN:C223(UnitTest_TestCaseEnabled; 0)
+ARRAY TEXT:C222(UnitTest_TestCases; 0)
+ARRAY TEXT:C222(_OnErr_methodStack; 0)
