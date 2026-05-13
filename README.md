@@ -7,7 +7,7 @@
  additional abilities for retrieving the file contents from disk.
 
 ## Requirements
-- 4D v18 is required.
+- 4D 21 is required.
 
 ## Installation and Use
 Copy the `FileFolder_Utils.4dbase` into the Components folder of your application. It is suggested that you compile the component before installing it into your own projects.
