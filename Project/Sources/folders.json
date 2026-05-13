@@ -32,8 +32,6 @@
 	},
 	"Utility Methods": {
 		"methods": [
-			"Compiler_Methods",
-			"Compiler_Variables",
 			"STR_GetLeftOfChar",
 			"STR_IsOneOf",
 			"STR_TellMeTheEOL",
