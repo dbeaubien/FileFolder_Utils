@@ -34,6 +34,9 @@ Case of
 	: ($file_extension="gif") || ($file_extension="bmp") || ($file_extension="png")
 		$mime_type:="image/"+$file_extension
 		
+	: ($file_extension="svg")
+		$mime_type:="image/svg+xml"
+		
 	: ($file_extension="json")  //   Mod: DB (09/12/2012)
 		$mime_type:="application/json"
 		
